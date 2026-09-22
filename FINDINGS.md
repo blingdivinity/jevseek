@@ -281,6 +281,18 @@ Two things the runs fixed along the way:
   could not trim the pure-jev collapse at 100 tokens and waited until 500.
   Fixed; on the gated LW post it fired exactly where it should, at
   *"The graph is 1 million nodes. The graph is 5 million nodes."*
+- **A single-step ramble verdict is too twitchy.** With `deepseek-v4-pro`
+  proposing, the rambling probability sat at 30–50% through a flat paragraph
+  and touched 0.75 exactly once, on a repeated phrase; that ended a 135-token
+  essay. Now the verdict must hold for `--ramble-patience 6` judged steps at
+  0.85, and the trim goes back to where the streak began.
+- **Pro hands jev more say, and jev loops at sentence scale.** Pro is less
+  certain per token than Flash, so the gate weight rose from ~0.4 to ~0.57
+  and the gated essay collapsed into *"The proof is not understandable."*
+  four times. The trace shows Pro wanting `It is opaque` / `The swarm…` at
+  every branch point and jev choosing the repeat. A per-token penalty cannot
+  see this (each word is only mildly repeated); `--no-repeat-ngram 4` blocks
+  any token that would complete a 4-gram already in the text.
 
 Costs: ~$0.04 per 700-token gated essay, ~$0.04 per 1250-token control.
 Deepseek caches in 64-token blocks with a ~5 s build and never counts the last

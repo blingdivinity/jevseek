@@ -185,6 +185,8 @@ def main():
     g.add_argument("--gate-power", type=float, help="with --gate: w = w ** power; below 1 gives jev more say")
     g.add_argument("--temperature", type=float, help=f"sampling over the final score; 0 = greedy (default {d.temperature})")
     g.add_argument("--repeat-penalty", type=float, help=f"divisor per prior occurrence in the last 16 tokens; 1 = off (default {d.repeat_penalty})")
+    g.add_argument("--no-repeat-ngram", type=int,
+                   help=f"block a token that would repeat an n-gram already in the text -- stops jev re-choosing a whole sentence; 0 = off (default {d.no_repeat_ngram}; essay preset 4)")
     g.add_argument("--seed", type=int, help="shuffle and sampling seed")
 
     g = p.add_argument_group("stopping")
@@ -196,6 +198,8 @@ def main():
     g.add_argument("--ramble-noul", type=float,
                    help=f"also asks 'has this started rambling?'; stop and trim to the last sentence when P >= this; 0 = off (default {d.ramble_noul})")
     g.add_argument("--ramble-question", help="wording of that yes/no question")
+    g.add_argument("--ramble-patience", type=int,
+                   help=f"the rambling verdict must hold this many judged steps in a row before it counts (default {d.ramble_patience}; essay preset 6)")
     g.add_argument("--fish-tries", type=int,
                    help=f"when deepseek's sampled token is EOS it returns no logprobs; re-ask at T=2 this many times and "
                         f"un-temper so <END> is a candidate jev can weigh; 0 = let deepseek end alone (default {d.fish_tries})")

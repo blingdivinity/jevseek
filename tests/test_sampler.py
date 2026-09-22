@@ -123,5 +123,16 @@ def test_presets_are_valid_configs():
     for name, over in PRESETS.items():
         cfg = Config(**over)
         assert cfg.mode in ("chat", "raw", "base"), name
+    # the essay preset tolerates a spike: rambling must hold for a window
+    essay = Config(**PRESETS["essay"])
+    assert essay.ramble_patience > 1 and essay.ramble_noul >= 0.8
     assert Config(**PRESETS["essay"]).gate == "top1"
     assert Config(**PRESETS["pure"]).stop_noul == 0.0
+
+
+def test_ngram_block_stops_sentence_loops():
+    cfg = Config(repeat_penalty=1.0, no_repeat_ngram=4)
+    toks = ["The", " proof", " is", " not", " understandable", ".", " The", " proof", " is"]
+    assert _penalty(toks, " not", cfg) >= 1e6       # completes "the proof is not" again
+    assert _penalty(toks, " opaque", cfg) == 1.0    # a new 4-gram is fine
+    assert _penalty(toks[:2], " is", cfg) == 1.0    # too short to have a prior n-gram

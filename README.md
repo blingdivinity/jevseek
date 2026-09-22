@@ -80,7 +80,13 @@ defaults. The ones that matter most:
 - `--stop-noul 0.7` / `--ramble-noul 0.6` — jev's own "is it finished?" and
   "has it started rambling?" judgements, asked on the same call. Stopping is
   not a token; a decision model asked what a person would type next will never
-  choose `<END>`.
+  choose `<END>`. `--ramble-patience 6` (essay) makes the rambling verdict
+  hold for six judged steps before it counts: one spike on a repeated phrase
+  is not a verdict.
+- `--repeat-penalty 1.6` / `--no-repeat-ngram 4` — the per-token penalty
+  stops `yes yes yes`; the n-gram block stops jev re-choosing a whole sentence
+  (*"The proof is not understandable."* four times, each word only mildly
+  repeated).
 - `--gate top1 --gate-skip 0.05 --gate-power 0.5` — the gate (on in `gated`
   and `essay`): deepseek carries grammar, jev takes the branch points.
   `--gate none` hands every token to jev.

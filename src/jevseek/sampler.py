@@ -69,12 +69,14 @@ class Config:
     temperature: float = 0.0       # 0 = greedy over the final score
     repeat_penalty: float = 1.6    # divisor per prior occurrence in the window; 1 = off
     repeat_window: int = 16
+    no_repeat_ngram: int = 0       # block a token that would repeat an n-gram already in the text; 0 = off
     max_tokens: int = 120
     min_tokens: int = 4            # neither END nor "finished" may fire before this many tokens
     stop_noul: float = 0.7         # ask jev "is it finished?" each step; stop at this probability. 0 = off
     stop_question: str = STOP_QUESTION
     ramble_noul: float = 0.6       # ask jev "has it started rambling?"; stop (and trim) at this probability. 0 = off
     ramble_question: str = RAMBLE_QUESTION
+    ramble_patience: int = 1       # the rambling verdict must hold for this many consecutive judged steps
     fish_tries: int = deepseek.FISH_TRIES  # re-asks at high temperature when a sampled EOS hid the logprobs; 0 = off
     nudge: bool = True             # raw/base: supply "\n\n" when deepseek EOSes after an unterminated line
     seed: int = 0
@@ -90,10 +92,10 @@ PRESETS: dict[str, dict] = {
     "chat": {},
     # long-form: deepseek continues a document, jev chooses only where deepseek
     # is unsure (w = (1 - p_top)^0.5, not asked below 0.05), essay stop questions
-    "essay": dict(mode="raw", top_k=15, repeat_penalty=1.4, max_tokens=1400, min_tokens=500,
+    "essay": dict(mode="raw", top_k=15, repeat_penalty=1.4, no_repeat_ngram=4, max_tokens=1400, min_tokens=500,
                   gate="top1", gate_skip=0.05, gate_power=0.5,
                   stop_noul=0.75, stop_question=ESSAY_STOP_QUESTION,
-                  ramble_noul=0.75, ramble_question=ESSAY_RAMBLE_QUESTION),
+                  ramble_noul=0.85, ramble_question=ESSAY_RAMBLE_QUESTION, ramble_patience=6),
     # the original experiment: chat endpoint, assistant framing, no floor, no
     # stop questions -- jev alone, for reproducing the early findings
     "pure": dict(mode="chat", instruction="assistant",
@@ -211,11 +213,26 @@ def _penalty(tokens: list[str], tok: str, cfg: Config) -> float:
     """Jev loops when pushed past where it wanted to stop (`yeah... yeah...`), so
     every prior occurrence of a token in the window divides its score.
     Punctuation counts too: `...` twenty times is the failure, one `.` per
-    sentence costs little."""
-    if cfg.repeat_penalty <= 1.0 or not tok.strip():
+    sentence costs little.
+
+    The per-token penalty cannot stop jev re-choosing a whole sentence ("The
+    proof is not understandable." four times, each word individually only
+    mildly penalised), so a token that would complete an n-gram already in
+    the text is all but removed (divided by 1e6, not zeroed: if every
+    candidate is blocked something still has to be picked)."""
+    if not tok.strip():
         return 1.0
     key = tok.strip().lower()
-    return cfg.repeat_penalty ** sum(t.strip().lower() == key for t in tokens[-cfg.repeat_window:])
+    pen = 1.0
+    if cfg.repeat_penalty > 1.0:
+        pen = cfg.repeat_penalty ** sum(t.strip().lower() == key for t in tokens[-cfg.repeat_window:])
+    n = cfg.no_repeat_ngram
+    if n > 0 and len(tokens) >= n:
+        norm = [t.strip().lower() for t in tokens]
+        gram = norm[-(n - 1):] + [key] if n > 1 else [key]
+        if any(norm[i:i + n] == gram for i in range(len(norm) - n + 1)):
+            pen *= 1e6
+    return pen
 
 
 def _pick(scores: dict[str, float], temperature: float, rng: random.Random) -> str:
@@ -318,6 +335,7 @@ async def reply(
     stop = "max-tokens"
     t_start = time.perf_counter()
     nudged = False
+    rambling_run, ramble_start = 0, None
 
     for _ in range(cfg.max_tokens):
         t0 = time.perf_counter()
@@ -373,16 +391,24 @@ async def reply(
         stats.update({k: round(v, 3) for k, v in judged.items()})
 
         # Stopping is jev's own decision, asked alongside the token question.
-        # "Finished" only counts at a sentence boundary; "rambling" stops at
-        # once and trims back to the last boundary before the padding began.
+        # "Finished" only counts at a sentence boundary; "rambling" has to hold
+        # for `ramble_patience` judged steps in a row (one spike on a repeated
+        # phrase is not a verdict), then trims back to the sentence boundary
+        # before the padding began.
         verdict = None
+        if judged.get("rambling", 0) >= cfg.ramble_noul > 0:
+            rambling_run += 1
+        elif judged:
+            rambling_run = 0
         if (len(tokens) >= cfg.min_tokens and judged.get("finished", 0) >= cfg.stop_noul > 0
                 and prefix.rstrip().endswith(BOUNDARY)):
             verdict = "END:finished"
-        elif judged.get("rambling", 0) >= cfg.ramble_noul > 0:
+        elif rambling_run >= cfg.ramble_patience and cfg.ramble_noul > 0:
             # The floor does not apply: a reply that is rambling is over.
             verdict = "END:rambling"
-            tokens[:] = [trim_to_boundary(prefix)]
+            tokens[:] = [trim_to_boundary(ramble_start if ramble_start is not None else prefix)]
+        if rambling_run == 1:
+            ramble_start = prefix
         if verdict:
             steps.append(Step(prefix=prefix, chosen=None, candidates=[], per_order=per_order, orderings=ords,
                               stats=stats, latency_ms=round((time.perf_counter() - t0) * 1000, 1)))
