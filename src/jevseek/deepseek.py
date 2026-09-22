@@ -75,8 +75,16 @@ def _logaddexp(a: float, b: float) -> float:
 
 
 async def _post(client, usage, url, body) -> dict:
+    # A dropped connection twenty minutes into an essay is not a reason to
+    # lose the essay: transport errors retry like 5xx does.
     for attempt in range(5):
-        r = await client.post(url, json=body)
+        try:
+            r = await client.post(url, json=body)
+        except httpx.TransportError:
+            if attempt == 4:
+                raise
+            await asyncio.sleep(1 + 2 * attempt)
+            continue
         if r.status_code < 400:
             break
         await asyncio.sleep(1 + 2 * attempt)

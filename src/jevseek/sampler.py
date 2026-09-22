@@ -28,6 +28,8 @@ import random
 import time
 from dataclasses import dataclass, field
 
+import httpx
+
 from . import deepseek, jev
 from .deepseek import END, Candidate
 
@@ -341,12 +343,20 @@ async def reply(
         t0 = time.perf_counter()
         prefix = "".join(tokens)
         kw = dict(model=cfg.deepseek_model, top_k=cfg.top_k, fish_tries=cfg.fish_tries)
-        if cfg.mode == "raw":
-            raw = await deepseek.propose_raw(ds_client, ds_usage, message + prefix, **kw)
-        elif cfg.mode == "base":
-            raw = await deepseek.propose_raw(ds_client, ds_usage, base_prompt(history, message, prefix), **kw)
-        else:
-            raw = await deepseek.propose(ds_client, ds_usage, msgs, prefix, **kw)
+        try:
+            if cfg.mode == "raw":
+                raw = await deepseek.propose_raw(ds_client, ds_usage, message + prefix, **kw)
+            elif cfg.mode == "base":
+                raw = await deepseek.propose_raw(ds_client, ds_usage, base_prompt(history, message, prefix), **kw)
+            else:
+                raw = await deepseek.propose(ds_client, ds_usage, msgs, prefix, **kw)
+        except httpx.HTTPError as e:
+            # Retries are exhausted: keep the twenty minutes of essay, mark
+            # how it ended, and let the caller record and score it.
+            if not tokens:
+                raise
+            stop = f"ERROR:{type(e).__name__}"
+            break
 
         # In completion mode deepseek-flash is near-certain the document is over
         # after a bare section header ("III. The Aftermath") -- EOS survives
@@ -383,9 +393,13 @@ async def reply(
                 nouls["finished"] = cfg.stop_question
             if cfg.ramble_noul > 0:
                 nouls["rambling"] = cfg.ramble_question
-            per_order, judged = await jev.decide(
-                jev_client, jev_usage, state, ords, model=cfg.jev_model,
-                instructions=INSTRUCTIONS.get(cfg.instruction, cfg.instruction), nouls=nouls)
+            try:
+                per_order, judged = await jev.decide(
+                    jev_client, jev_usage, state, ords, model=cfg.jev_model,
+                    instructions=INSTRUCTIONS.get(cfg.instruction, cfg.instruction), nouls=nouls)
+            except httpx.HTTPError as e:
+                stop = f"ERROR:{type(e).__name__}"
+                break
             combined = combine(per_order, [c.text for c in cands], cfg.combine)
             stats = order_stats(per_order, ords, combined)
         stats.update({k: round(v, 3) for k, v in judged.items()})

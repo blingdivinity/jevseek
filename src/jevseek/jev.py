@@ -66,7 +66,13 @@ async def decide(
         questions[f"__{name}__"] = {"type": "noul", "instructions": q}
     body = {"model": model, "state": state, "questions": questions}
     for attempt in range(5):
-        r = await client.post(API_URL, json=body)
+        try:
+            r = await client.post(API_URL, json=body)
+        except httpx.TransportError:
+            if attempt == 4:
+                raise
+            await asyncio.sleep(2 + 3 * attempt)
+            continue
         if r.status_code < 400:
             break
         await asyncio.sleep(2 + 3 * attempt)
