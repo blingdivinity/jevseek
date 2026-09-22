@@ -1,0 +1,9 @@
+Navier-Stoked
+Or: Life After The Swarm Solved Turbulence
+by Scott Alexander
+22nd Sep 2026
+
+[Epistemic status: speculative, written three weeks after the event. Last month a swarm of roughly forty thousand AI agents, run by a lab that will not say much about it, posted a 9,000-page proof of existence and smoothness for the Navier-Stokes equations. The Clay Institute has provisionally accepted it. No human has read the whole thing. As far as anyone can tell, no single agent in the swarm has either.]
+
+I.
+

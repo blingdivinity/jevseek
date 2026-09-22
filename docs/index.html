@@ -1,0 +1,1976 @@
+<!doctype html><meta charset="utf-8"><title>jevseek runs</title><style>
+body{font:15px/1.5 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem;color:#1c1c1c;background:#fafaf7}
+h1{font-weight:600} h2{font-size:1.1rem;margin:2.5rem 0 .5rem;border-top:1px solid #ddd;padding-top:1rem}
+h2 small{color:#777;font-weight:400;margin-left:.5rem}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.5rem}
+.chip{background:#eee;border-radius:4px;padding:.1rem .45rem;font-size:.8rem;font-family:ui-monospace,Menlo,monospace}
+.chip.muted,.badge.muted{color:#888}
+details{margin:.25rem 0} summary{cursor:pointer;font-size:.85rem;color:#555}
+pre{white-space:pre-wrap;background:#f1f1ee;padding:.5rem;border-radius:4px;font-size:.8rem}
+.turn{background:#fff;border:1px solid #e4e4e0;border-radius:6px;padding:.75rem 1rem;margin:.75rem 0}
+.who{color:#999;font-family:ui-monospace,Menlo,monospace;font-size:.8rem;margin-right:.4rem}
+.prompt{color:#444;white-space:pre-wrap;margin-bottom:.5rem}
+.reply{white-space:pre-wrap}
+.facts{margin-top:.6rem;font-size:.8rem;color:#666}
+.badge{border-radius:4px;padding:.05rem .4rem;font-weight:600;margin-right:.4rem}
+.badge.human{background:#dff5e1;color:#1b6e2a} .badge.ai{background:#fde2e2;color:#a12626} .badge.mixed{background:#fff3cd;color:#7a5b00}
+.ordtag{font-size:.8rem;color:#555;font-family:ui-monospace,Menlo,monospace;margin-bottom:.3rem}
+.cut{white-space:pre-wrap;margin-top:.4rem;color:#a12626}
+.cutwhy{font-size:.8rem;color:#a12626;margin-top:.2rem;white-space:normal}
+.stop.bad{color:#a12626;font-weight:600} .stop.warn{color:#7a5b00;font-weight:600}
+nav{font-size:.85rem;line-height:1.9} nav a{margin-right:.6rem;white-space:nowrap}
+.intro{color:#555}
+</style>
+<h1>jevseek — recorded runs</h1>
+<p class="intro">deepseek proposes the next token, TypeSafe's jev chooses. Each section is one recorded run;
+chips show the settings that differ from the current defaults. Pangram scores are 0 = human, 1 = AI. Newest first.
+Red <i>cut ›</i> lines are text jev's own "rambling" judgement removed.</p>
+<nav><a href="#general-acx">general-acx</a> <a href="#acx-jev">acx-jev</a> <a href="#general-lw-gated">general-lw-gated</a> <a href="#lw-gated">lw-gated</a> <a href="#lw-control">lw-control</a> <a href="#stop-nouls">stop-nouls</a> <a href="#general-discord-bare">general-discord-bare</a> <a href="#raw1">raw1</a> <a href="#ctrl-temp">ctrl-temp</a> <a href="#ctrl-greedy">ctrl-greedy</a> <a href="#bias">bias</a></nav>
+
+<section class="run" id="general-acx">
+  <h2>general-acx <small>2026-09-22 03:58 · 1 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>mode</b> raw</span><span class="chip"><b>instruction</b> Which token should come next?</span><span class="chip"><b>top_k</b> 15</span><span class="chip"><b>repeat_penalty</b> 1.4</span><span class="chip"><b>min_tokens</b> 200</span><span class="chip"><b>stop_noul</b> 0.75</span><span class="chip"><b>ramble_noul</b> 0.75</span><span class="chip"><b>max_tokens</b> 700</span></div>
+  <details><summary>system</summary><pre>You are a helpful assistant. Reply in plain prose, no markdown.</pre></details><details><summary>stop_question</summary><pre>Is this post finished -- is it complete as a published essay, with its argument landed?</pre></details><details><summary>ramble_question</summary><pre>Has the post started padding, repeating its point, or losing the thread -- gone on past where it should have ended?</pre></details>
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> astralcodexten.com
+
+God Help Us, Let&#x27;s Try To Learn About Mechanistic Interpretability Techniques
+
+Scott Alexander
+Sep 08, 2026
+
+The Story So Far
+
+Mechanistic interpretability is the science of &quot;reading an AI&#x27;s mind&quot;.</div>
+  <div class="reply"><span class="who">jev ›</span> It aims to understand how models work internally. It is a field of research in the AI industry. It is currently hot. But it is confusing. So we try to understand how models work.</div>
+  <div class="cut"><span class="who">cut ›</span>The goal is to understand how models work<div class="cutwhy">stopped by jev's rambling noul at 48 steps — finished 0.05 · rambling 0.80</div></div>
+  <div class="facts"><span class="badge human">pangram 0.003 · Human</span> 47 tokens · <span class="stop bad">stop END:rambling</span> · jev=ds-top1 40% · jev weight 1.00 · 0 skipped · 48.1s · $0.0025</div>
+  <details><summary>noul trace (48 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.05  ram 0.11  …
+   1  fin 0.05  ram 0.14  … It
+   2  fin 0.06  ram 0.12  … It aims
+   3  fin 0.05  ram 0.12  … It aims to
+   4  fin 0.06  ram 0.13  … It aims to understand
+   5  fin 0.06  ram 0.12  … It aims to understand how
+   6  fin 0.05  ram 0.12  … It aims to understand how models
+   7  fin 0.06  ram 0.13  … It aims to understand how models work
+   8  fin 0.06  ram 0.13  …It aims to understand how models work internally
+   9  fin 0.06  ram 0.13  …t aims to understand how models work internally.
+  10  fin 0.05  ram 0.18  …ims to understand how models work internally. It
+  11  fin 0.05  ram 0.19  … to understand how models work internally. It is
+  12  fin 0.05  ram 0.17  …o understand how models work internally. It is a
+  13  fin 0.05  ram 0.17  …rstand how models work internally. It is a field
+  14  fin 0.05  ram 0.16  …and how models work internally. It is a field of
+  15  fin 0.05  ram 0.15  …odels work internally. It is a field of research
+  16  fin 0.05  ram 0.16  …ls work internally. It is a field of research in
+  17  fin 0.05  ram 0.16  …ork internally. It is a field of research in the
+  18  fin 0.05  ram 0.15  … internally. It is a field of research in the AI
+  19  fin 0.06  ram 0.16  …ly. It is a field of research in the AI industry
+  20  fin 0.05  ram 0.18  …y. It is a field of research in the AI industry.
+  21  fin 0.04  ram 0.37  …It is a field of research in the AI industry. It
+  22  fin 0.04  ram 0.45  …is a field of research in the AI industry. It is
+  23  fin 0.04  ram 0.25  … of research in the AI industry. It is currently
+  24  fin 0.05  ram 0.23  …research in the AI industry. It is currently hot
+  25  fin 0.05  ram 0.28  …esearch in the AI industry. It is currently hot.
+  26  fin 0.05  ram 0.22  …rch in the AI industry. It is currently hot. But
+  27  fin 0.05  ram 0.26  … in the AI industry. It is currently hot. But it
+  28  fin 0.04  ram 0.29  … the AI industry. It is currently hot. But it is
+  29  fin 0.05  ram 0.22  …dustry. It is currently hot. But it is confusing
+  30  fin 0.05  ram 0.21  …ustry. It is currently hot. But it is confusing.
+  31  fin 0.05  ram 0.24  …ry. It is currently hot. But it is confusing. So
+  32  fin 0.04  ram 0.23  … It is currently hot. But it is confusing. So we
+  33  fin 0.04  ram 0.20  …is currently hot. But it is confusing. So we try
+  34  fin 0.04  ram 0.26  …currently hot. But it is confusing. So we try to
+  35  fin 0.05  ram 0.25  …ot. But it is confusing. So we try to understand
+  36  fin 0.04  ram 0.44  …But it is confusing. So we try to understand how
+  37  fin 0.04  ram 0.44  …is confusing. So we try to understand how models
+  38  fin 0.05  ram 0.52  …nfusing. So we try to understand how models work
+  39  fin 0.05  ram 0.53  …fusing. So we try to understand how models work.
+  40  fin 0.04  ram 0.68  …ng. So we try to understand how models work. The
+  41  fin 0.04  ram 0.59  …o we try to understand how models work. The goal
+  42  fin 0.04  ram 0.57  …e try to understand how models work. The goal is
+  43  fin 0.04  ram 0.61  …ry to understand how models work. The goal is to
+  44  fin 0.04  ram 0.70  …stand how models work. The goal is to understand
+  45  fin 0.04  ram 0.74  …d how models work. The goal is to understand how
+  46  fin 0.05  ram 0.72  …odels work. The goal is to understand how models
+  47  fin 0.05  ram 0.80  … work. The goal is to understand how models work</pre></details>
+</article>
+</section>
+<section class="run" id="acx-jev">
+  <h2>acx-jev <small>2026-09-22 03:58 · 1 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>mode</b> raw</span><span class="chip"><b>instruction</b> Which token would Scott Alexander write next in this post?</span><span class="chip"><b>top_k</b> 15</span><span class="chip"><b>repeat_penalty</b> 1.4</span><span class="chip"><b>min_tokens</b> 500</span><span class="chip"><b>stop_noul</b> 0.75</span><span class="chip"><b>ramble_noul</b> 0.75</span><span class="chip"><b>max_tokens</b> 1400</span></div>
+  <details><summary>system</summary><pre>You are a helpful assistant. Reply in plain prose, no markdown.</pre></details><details><summary>stop_question</summary><pre>Is this post finished -- is it complete as a published essay, with its argument landed?</pre></details><details><summary>ramble_question</summary><pre>Has the post started padding, repeating its point, or losing the thread -- gone on past where it should have ended?</pre></details>
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> astralcodexten.com
+
+God Help Us, Let&#x27;s Try To Learn About Mechanistic Interpretability Techniques
+
+Scott Alexander
+Sep 08, 2026
+
+The Story So Far
+
+Mechanistic interpretability is the science of &quot;reading an AI&#x27;s mind&quot;.</div>
+  <div class="reply"><span class="who">jev ›</span> It aims to understand how an neural network works internally. It is the field of the future. But it is hard. And so we need people who are interested to help. The field needs more researchers. I&#x27;m a blogger and writer and am not an researcher. But I want to contribute to this in ways possible in my own ways. So I decided to write about techniques on the field. Here the series is:
+
+Part1
+In Part1
+In Part2
+In Part3
+In Part4
+
+The series is called: The Road to AI. In Part One
+In Part One In
+In Part In
+The
+Part
+
+In
+.
+
+.
+
+.
+
+...
+
+...
+
+...
+
+...
+
+...
+
+In In In In In Part Part Part Part Part.
+
+.
+
+.
+
+...
+
+...
+
+Let us go
+
+In In In In In In In Part Part Part Part Part One One One
+Let go Let go In In In In In In Let Part Part...
+
+...
+
+...
+
+Part One
+The Road to AI
+In In In In In In Part Part The...
+
+...
+
+Part The Road One
+Road
+In In In In In In Part Part...
+
+...
+
+...
+
+The The Part
+This This This is is is is In In In In...
+
+...
+
+...
+
+The The Part In Part Part In.
+
+...
+
+We We are are going to learn about techniques In In the field In mechanistic interpretability In the field In mechanistic interpretability...
+
+...
+
+...
+
+In In In In the the the...
+
+In In Part Part Part In Mechanistic...
+
+...
+
+...
+
+In In In In Mechanistic mechanistic mechanistic mechanistic...
+
+In In Part Part Part...
+
+...
+
+...
+
+In In In In In In.
+
+...
+
+...
+
+.
+
+In the Part Part Part...
+
+...
+
+In In In In In In...
+
+...
+
+Okay Okay Okay Okay Let go Part Part One The The In In In In...
+
+...
+
+...
+
+In In In Part...
+
+...
+
+Part Part Part The The In In In In...
+
+...
+
+...
+
+In In In Mechanistic mechanistic mechanistic Part Part Part The In In In...
+
+...
+
+...
+
+In In In...
+
+In Part One The The Part Part In Mechanistic mechanistic...
+
+...
+
+In In In In In...
+
+...
+
+In Part Part Part In...
+
+...
+
+In Part...
+
+The The In In In In...
+
+In Part Mechanistic mechanistic mechanistic...
+
+In Part...
+
+...
+
+In Part In In In In...
+
+...
+
+In Part Part The Road...
+
+In Part...
+
+In Part Mechanistic mechanistic In In...
+
+In In...
+
+In Part Part...
+
+In...
+
+In Part Part Mechanistic mechanistic In In In In...
+
+...
+
+...
+
+In Part Part...</div>
+  
+  <div class="facts"><span class="badge human">pangram 0.003 · Human</span> 500 tokens · <span class="stop bad">stop END:rambling</span> · jev=ds-top1 45% · jev weight 1.00 · 7 skipped · 552.1s · $0.0381</div>
+  <details><summary>noul trace (494 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.05  ram 0.11  …
+   1  fin 0.05  ram 0.13  … It
+   2  fin 0.06  ram 0.13  … It aims
+   3  fin 0.05  ram 0.11  … It aims to
+   4  fin 0.05  ram 0.13  … It aims to understand
+   5  fin 0.05  ram 0.12  … It aims to understand how
+   6  fin 0.05  ram 0.12  … It aims to understand how an
+   7  fin 0.05  ram 0.13  … It aims to understand how an neural
+   8  fin 0.06  ram 0.13  … It aims to understand how an neural network
+   9  fin 0.06  ram 0.13  …t aims to understand how an neural network works
+  10  fin 0.06  ram 0.13  …nderstand how an neural network works internally
+  11  fin 0.05  ram 0.13  …derstand how an neural network works internally.
+  12  fin 0.05  ram 0.19  …stand how an neural network works internally. It
+  13  fin 0.05  ram 0.19  …nd how an neural network works internally. It is
+  14  fin 0.05  ram 0.17  …ow an neural network works internally. It is the
+  15  fin 0.05  ram 0.17  …neural network works internally. It is the field
+  16  fin 0.05  ram 0.17  …ral network works internally. It is the field of
+  17  fin 0.05  ram 0.18  …network works internally. It is the field of the
+  18  fin 0.05  ram 0.15  … works internally. It is the field of the future
+  19  fin 0.05  ram 0.17  …works internally. It is the field of the future.
+  20  fin 0.05  ram 0.16  …s internally. It is the field of the future. But
+  21  fin 0.05  ram 0.19  …nternally. It is the field of the future. But it
+  22  fin 0.04  ram 0.21  …rnally. It is the field of the future. But it is
+  23  fin 0.05  ram 0.14  …y. It is the field of the future. But it is hard
+  24  fin 0.05  ram 0.16  …. It is the field of the future. But it is hard.
+  25  fin 0.05  ram 0.23  … is the field of the future. But it is hard. And
+  26  fin 0.05  ram 0.19  … the field of the future. But it is hard. And so
+  27  fin 0.05  ram 0.22  …e field of the future. But it is hard. And so we
+  28  fin 0.05  ram 0.19  …ld of the future. But it is hard. And so we need
+  29  fin 0.05  ram 0.18  …he future. But it is hard. And so we need people
+  30  fin 0.05  ram 0.19  …uture. But it is hard. And so we need people who
+  31  fin 0.05  ram 0.17  …e. But it is hard. And so we need people who are
+  32  fin 0.04  ram 0.17  …s hard. And so we need people who are interested
+  33  fin 0.04  ram 0.23  …ard. And so we need people who are interested to
+  34  fin 0.06  ram 0.17  …And so we need people who are interested to help
+  35  fin 0.05  ram 0.18  …nd so we need people who are interested to help.
+  36  fin 0.04  ram 0.25  …o we need people who are interested to help. The
+  37  fin 0.04  ram 0.36  …eed people who are interested to help. The field
+  38  fin 0.04  ram 0.31  …ople who are interested to help. The field needs
+  39  fin 0.05  ram 0.31  …who are interested to help. The field needs more
+  40  fin 0.06  ram 0.23  …rested to help. The field needs more researchers
+  41  fin 0.06  ram 0.28  …ested to help. The field needs more researchers.
+  42  fin 0.04  ram 0.33  …ted to help. The field needs more researchers. I
+  43  fin 0.04  ram 0.31  …d to help. The field needs more researchers. I&#x27;m
+  44  fin 0.04  ram 0.26  …to help. The field needs more researchers. I&#x27;m a
+  45  fin 0.05  ram 0.31  … The field needs more researchers. I&#x27;m a blogger
+  46  fin 0.04  ram 0.30  … field needs more researchers. I&#x27;m a blogger and
+  47  fin 0.05  ram 0.30  …needs more researchers. I&#x27;m a blogger and writer
+  48  fin 0.04  ram 0.41  …s more researchers. I&#x27;m a blogger and writer and
+  49  fin 0.04  ram 0.33  …ore researchers. I&#x27;m a blogger and writer and am
+  50  fin 0.05  ram 0.26  …researchers. I&#x27;m a blogger and writer and am not
+  51  fin 0.04  ram 0.27  …earchers. I&#x27;m a blogger and writer and am not an
+  52  fin 0.06  ram 0.25  …&#x27;m a blogger and writer and am not an researcher
+  53  fin 0.06  ram 0.24  …m a blogger and writer and am not an researcher.
+  54  fin 0.04  ram 0.31  …blogger and writer and am not an researcher. But
+  55  fin 0.05  ram 0.33  …ogger and writer and am not an researcher. But I
+  56  fin 0.04  ram 0.29  … and writer and am not an researcher. But I want
+  57  fin 0.04  ram 0.30  …d writer and am not an researcher. But I want to
+  58  fin 0.05  ram 0.22  …d am not an researcher. But I want to contribute
+  59  fin 0.04  ram 0.33  …m not an researcher. But I want to contribute to
+  60  fin 0.05  ram 0.22  … an researcher. But I want to contribute to this
+  61  fin 0.04  ram 0.34  … researcher. But I want to contribute to this in
+  62  fin 0.04  ram 0.35  …archer. But I want to contribute to this in ways
+  63  fin 0.06  ram 0.22  …ut I want to contribute to this in ways possible
+  64  fin 0.04  ram 0.37  …I want to contribute to this in ways possible in
+  65  fin 0.04  ram 0.36  …ant to contribute to this in ways possible in my
+  66  fin 0.05  ram 0.28  …to contribute to this in ways possible in my own
+  67  fin 0.07  ram 0.22  …ntribute to this in ways possible in my own ways
+  68  fin 0.07  ram 0.22  …tribute to this in ways possible in my own ways.
+  69  fin 0.04  ram 0.35  …bute to this in ways possible in my own ways. So
+  70  fin 0.04  ram 0.41  …te to this in ways possible in my own ways. So I
+  71  fin 0.04  ram 0.32  …is in ways possible in my own ways. So I decided
+  72  fin 0.04  ram 0.32  …in ways possible in my own ways. So I decided to
+  73  fin 0.05  ram 0.27  …s possible in my own ways. So I decided to write
+  74  fin 0.04  ram 0.36  …ible in my own ways. So I decided to write about
+  75  fin 0.05  ram 0.23  …own ways. So I decided to write about techniques
+  76  fin 0.04  ram 0.32  … ways. So I decided to write about techniques on
+  77  fin 0.04  ram 0.33  …s. So I decided to write about techniques on the
+  78  fin 0.06  ram 0.21  …I decided to write about techniques on the field
+  79  fin 0.07  ram 0.20  … decided to write about techniques on the field.
+  80  fin 0.04  ram 0.32  …ded to write about techniques on the field. Here
+  81  fin 0.03  ram 0.42  …to write about techniques on the field. Here the
+  82  fin 0.05  ram 0.26  …e about techniques on the field. Here the series
+  83  fin 0.04  ram 0.32  …bout techniques on the field. Here the series is
+  84  fin 0.03  ram 0.26  …t techniques on the field. Here the series is:⏎⏎
+  85  fin 0.03  ram 0.27  …chniques on the field. Here the series is:⏎⏎Part
+  86  fin 0.05  ram 0.25  …hniques on the field. Here the series is:⏎⏎Part1
+  87  fin 0.05  ram 0.23  …niques on the field. Here the series is:⏎⏎Part1⏎
+  88  fin 0.03  ram 0.29  …ques on the field. Here the series is:⏎⏎Part1⏎In
+  89  fin 0.03  ram 0.34  …on the field. Here the series is:⏎⏎Part1⏎In Part
+  90  fin 0.04  ram 0.34  …n the field. Here the series is:⏎⏎Part1⏎In Part1
+  91  fin 0.03  ram 0.42  … the field. Here the series is:⏎⏎Part1⏎In Part1⏎
+  92  fin 0.03  ram 0.70  …he field. Here the series is:⏎⏎Part1⏎In Part1⏎In
+  93  fin 0.03  ram 0.76  …eld. Here the series is:⏎⏎Part1⏎In Part1⏎In Part
+  94  fin 0.06  ram 0.51  …ld. Here the series is:⏎⏎Part1⏎In Part1⏎In Part2
+  95  fin 0.05  ram 0.49  …d. Here the series is:⏎⏎Part1⏎In Part1⏎In Part2⏎
+  96  fin 0.03  ram 0.66  … Here the series is:⏎⏎Part1⏎In Part1⏎In Part2⏎In
+  97  fin 0.03  ram 0.63  … the series is:⏎⏎Part1⏎In Part1⏎In Part2⏎In Part
+  98  fin 0.06  ram 0.47  …the series is:⏎⏎Part1⏎In Part1⏎In Part2⏎In Part3
+  99  fin 0.04  ram 0.48  …he series is:⏎⏎Part1⏎In Part1⏎In Part2⏎In Part3⏎
+ 100  fin 0.03  ram 0.67  … series is:⏎⏎Part1⏎In Part1⏎In Part2⏎In Part3⏎In
+ 101  fin 0.04  ram 0.63  …es is:⏎⏎Part1⏎In Part1⏎In Part2⏎In Part3⏎In Part
+ 102  fin 0.06  ram 0.53  …s is:⏎⏎Part1⏎In Part1⏎In Part2⏎In Part3⏎In Part4
+ 103  fin 0.06  ram 0.49  …is:⏎⏎Part1⏎In Part1⏎In Part2⏎In Part3⏎In Part4⏎⏎
+ 104  fin 0.04  ram 0.68  …⏎⏎Part1⏎In Part1⏎In Part2⏎In Part3⏎In Part4⏎⏎The
+ 105  fin 0.06  ram 0.63  …⏎In Part1⏎In Part2⏎In Part3⏎In Part4⏎⏎The series
+ 106  fin 0.04  ram 0.72  … Part1⏎In Part2⏎In Part3⏎In Part4⏎⏎The series is
+ 107  fin 0.03  ram 0.62  …In Part2⏎In Part3⏎In Part4⏎⏎The series is called
+ 108  fin 0.03  ram 0.63  …n Part2⏎In Part3⏎In Part4⏎⏎The series is called:
+ 109  fin 0.03  ram 0.66  …rt2⏎In Part3⏎In Part4⏎⏎The series is called: The
+ 110  fin 0.07  ram 0.53  …n Part3⏎In Part4⏎⏎The series is called: The Road
+ 111  fin 0.05  ram 0.58  …art3⏎In Part4⏎⏎The series is called: The Road to
+ 112  fin 0.08  ram 0.54  …3⏎In Part4⏎⏎The series is called: The Road to AI
+ 113  fin 0.06  ram 0.52  …⏎In Part4⏎⏎The series is called: The Road to AI.
+ 114  fin 0.04  ram 0.75  … Part4⏎⏎The series is called: The Road to AI. In
+ 115  fin 0.04  ram 0.78  …4⏎⏎The series is called: The Road to AI. In Part
+ 116  fin 0.05  ram 0.65  …he series is called: The Road to AI. In Part One
+ 117  fin 0.06  ram 0.66  …e series is called: The Road to AI. In Part One⏎
+ 118  fin 0.03  ram 0.87  …series is called: The Road to AI. In Part One⏎In
+ 119  fin 0.04  ram 0.85  …s is called: The Road to AI. In Part One⏎In Part
+ 120  fin 0.05  ram 0.88  … called: The Road to AI. In Part One⏎In Part One
+ 121  fin 0.04  ram 0.89  …lled: The Road to AI. In Part One⏎In Part One In
+ 122  fin 0.04  ram 0.90  …led: The Road to AI. In Part One⏎In Part One In⏎
+ 123  fin 0.04  ram 0.92  …d: The Road to AI. In Part One⏎In Part One In⏎In
+ 124  fin 0.03  ram 0.91  …e Road to AI. In Part One⏎In Part One In⏎In Part
+ 125  fin 0.04  ram 0.92  …oad to AI. In Part One⏎In Part One In⏎In Part In
+ 126  fin 0.04  ram 0.92  …ad to AI. In Part One⏎In Part One In⏎In Part In⏎
+ 127  fin 0.03  ram 0.92  …to AI. In Part One⏎In Part One In⏎In Part In⏎The
+ 128  fin 0.03  ram 0.93  …o AI. In Part One⏎In Part One In⏎In Part In⏎The⏎
+ 129  fin 0.03  ram 0.93  …. In Part One⏎In Part One In⏎In Part In⏎The⏎Part
+ 130  fin 0.04  ram 0.93  …In Part One⏎In Part One In⏎In Part In⏎The⏎Part⏎⏎
+ 131  fin 0.03  ram 0.94  … Part One⏎In Part One In⏎In Part In⏎The⏎Part⏎⏎In
+ 132  fin 0.03  ram 0.95  …Part One⏎In Part One In⏎In Part In⏎The⏎Part⏎⏎In⏎
+ 133  fin 0.03  ram 0.94  …t One⏎In Part One In⏎In Part In⏎The⏎Part⏎⏎In⏎.⏎⏎
+ 134  fin 0.03  ram 0.94  …ne⏎In Part One In⏎In Part In⏎The⏎Part⏎⏎In⏎.⏎⏎.⏎⏎
+ 135  fin 0.03  ram 0.95  …In Part One In⏎In Part In⏎The⏎Part⏎⏎In⏎.⏎⏎.⏎⏎.⏎⏎
+ 136  fin 0.03  ram 0.95  …rt One In⏎In Part In⏎The⏎Part⏎⏎In⏎.⏎⏎.⏎⏎.⏎⏎...⏎⏎
+ 137  fin 0.02  ram 0.95  …e In⏎In Part In⏎The⏎Part⏎⏎In⏎.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎
+ 138  fin 0.03  ram 0.95  …In Part In⏎The⏎Part⏎⏎In⏎.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎...⏎⏎
+ 139  fin 0.02  ram 0.95  …rt In⏎The⏎Part⏎⏎In⏎.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎
+ 140  fin 0.02  ram 0.95  …⏎The⏎Part⏎⏎In⏎.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎
+ 141  fin 0.02  ram 0.96  …he⏎Part⏎⏎In⏎.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎In
+ 142  fin 0.02  ram 0.96  …Part⏎⏎In⏎.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎In In
+ 143  fin 0.02  ram 0.96  …t⏎⏎In⏎.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎In In In
+ 144  fin 0.02  ram 0.97  …In⏎.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎In In In In
+ 145  fin 0.02  ram 0.97  ….⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎In In In In In
+ 146  fin 0.02  ram 0.96  …⏎.⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎In In In In In Part
+ 147  fin 0.02  ram 0.96  …..⏎⏎...⏎⏎...⏎⏎...⏎⏎...⏎⏎In In In In In Part Part
+ 148  fin 0.02  ram 0.97  …..⏎⏎...⏎⏎...⏎⏎...⏎⏎In In In In In Part Part Part
+ 149  fin 0.02  ram 0.97  …..⏎⏎...⏎⏎...⏎⏎In In In In In Part Part Part Part
+ 150  fin 0.02  ram 0.96  …..⏎⏎...⏎⏎In In In In In Part Part Part Part Part
+ 151  fin 0.02  ram 0.96  …⏎...⏎⏎In In In In In Part Part Part Part Part.⏎⏎
+ 152  fin 0.03  ram 0.96  ….⏎⏎In In In In In Part Part Part Part Part.⏎⏎.⏎⏎
+ 153  fin 0.03  ram 0.96  …In In In In In Part Part Part Part Part.⏎⏎.⏎⏎.⏎⏎
+ 154  fin 0.02  ram 0.96  … In In In Part Part Part Part Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎
+ 155  fin 0.02  ram 0.96  …n In Part Part Part Part Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎
+ 156  fin 0.02  ram 0.96  …n Part Part Part Part Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let
+ 157  fin 0.02  ram 0.96  …art Part Part Part Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let us
+ 158  fin 0.03  ram 0.96  … Part Part Part Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let us go
+ 159  fin 0.03  ram 0.96  …art Part Part Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let us go⏎⏎
+ 160  fin 0.02  ram 0.96  …t Part Part Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let us go⏎⏎In
+ 161  fin 0.02  ram 0.96  …art Part Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let us go⏎⏎In In
+ 162  fin 0.02  ram 0.97  … Part Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let us go⏎⏎In In In
+ 163  fin 0.02  ram 0.97  …rt Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let us go⏎⏎In In In In
+ 164  fin 0.02  ram 0.97  …Part.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let us go⏎⏎In In In In In
+ 165  fin 0.02  ram 0.96  …t.⏎⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let us go⏎⏎In In In In In In
+ 166  fin 0.02  ram 0.97  …⏎.⏎⏎.⏎⏎...⏎⏎...⏎⏎Let us go⏎⏎In In In In In In In
+ 167  fin 0.02  ram 0.97  …⏎⏎...⏎⏎...⏎⏎Let us go⏎⏎In In In In In In In Part
+ 168  fin 0.02  ram 0.96  …⏎⏎...⏎⏎Let us go⏎⏎In In In In In In In Part Part
+ 169  fin 0.02  ram 0.97  …⏎⏎Let us go⏎⏎In In In In In In In Part Part Part
+ 170  fin 0.02  ram 0.96  … us go⏎⏎In In In In In In In Part Part Part Part
+ 171  fin 0.02  ram 0.97  …o⏎⏎In In In In In In In Part Part Part Part Part
+ 172  fin 0.02  ram 0.97  …n In In In In In In Part Part Part Part Part One
+ 173  fin 0.02  ram 0.97  … In In In In In Part Part Part Part Part One One
+ 174  fin 0.02  ram 0.97  …In In In In Part Part Part Part Part One One One
+ 175  fin 0.02  ram 0.96  …n In In In Part Part Part Part Part One One One⏎
+ 176  fin 0.02  ram 0.97  …n In In Part Part Part Part Part One One One⏎Let
+ 177  fin 0.03  ram 0.97  …n In Part Part Part Part Part One One One⏎Let go
+ 178  fin 0.02  ram 0.97  … Part Part Part Part Part One One One⏎Let go Let
+ 179  fin 0.02  ram 0.97  …rt Part Part Part Part One One One⏎Let go Let go
+ 180  fin 0.02  ram 0.97  …Part Part Part Part One One One⏎Let go Let go In
+ 181  fin 0.02  ram 0.97  …t Part Part Part One One One⏎Let go Let go In In
+ 182  fin 0.02  ram 0.97  …art Part Part One One One⏎Let go Let go In In In
+ 183  fin 0.02  ram 0.97  … Part Part One One One⏎Let go Let go In In In In
+ 184  fin 0.02  ram 0.97  …rt Part One One One⏎Let go Let go In In In In In
+ 185  fin 0.02  ram 0.97  …Part One One One⏎Let go Let go In In In In In In
+ 186  fin 0.02  ram 0.97  … One One One⏎Let go Let go In In In In In In Let
+ 187  fin 0.02  ram 0.97  …One One⏎Let go Let go In In In In In In Let Part
+ 188  fin 0.02  ram 0.97  …ne⏎Let go Let go In In In In In In Let Part Part
+ 189  fin 0.02  ram 0.97  …t go Let go In In In In In In Let Part Part...⏎⏎
+ 190  fin 0.02  ram 0.97  …Let go In In In In In In Let Part Part...⏎⏎...⏎⏎
+ 191  fin 0.02  ram 0.96  …o In In In In In In Let Part Part...⏎⏎...⏎⏎...⏎⏎
+ 192  fin 0.02  ram 0.97  … In In In In In Let Part Part...⏎⏎...⏎⏎...⏎⏎Part
+ 193  fin 0.02  ram 0.96  …In In In In Let Part Part...⏎⏎...⏎⏎...⏎⏎Part One
+ 194  fin 0.02  ram 0.96  …n In In In Let Part Part...⏎⏎...⏎⏎...⏎⏎Part One⏎
+ 195  fin 0.02  ram 0.96  …n In In Let Part Part...⏎⏎...⏎⏎...⏎⏎Part One⏎The
+ 196  fin 0.02  ram 0.96  …In Let Part Part...⏎⏎...⏎⏎...⏎⏎Part One⏎The Road
+ 197  fin 0.02  ram 0.97  …Let Part Part...⏎⏎...⏎⏎...⏎⏎Part One⏎The Road to
+ 198  fin 0.03  ram 0.96  … Part Part...⏎⏎...⏎⏎...⏎⏎Part One⏎The Road to AI
+ 199  fin 0.03  ram 0.96  …Part Part...⏎⏎...⏎⏎...⏎⏎Part One⏎The Road to AI⏎
+ 200  fin 0.02  ram 0.97  …rt Part...⏎⏎...⏎⏎...⏎⏎Part One⏎The Road to AI⏎In
+ 201  fin 0.02  ram 0.97  …Part...⏎⏎...⏎⏎...⏎⏎Part One⏎The Road to AI⏎In In
+ 202  fin 0.02  ram 0.97  …t...⏎⏎...⏎⏎...⏎⏎Part One⏎The Road to AI⏎In In In
+ 203  fin 0.02  ram 0.97  ….⏎⏎...⏎⏎...⏎⏎Part One⏎The Road to AI⏎In In In In
+ 204  fin 0.02  ram 0.96  …...⏎⏎...⏎⏎Part One⏎The Road to AI⏎In In In In In
+ 205  fin 0.02  ram 0.96  …⏎⏎...⏎⏎Part One⏎The Road to AI⏎In In In In In In
+ 206  fin 0.02  ram 0.96  …⏎⏎Part One⏎The Road to AI⏎In In In In In In Part
+ 207  fin 0.02  ram 0.96  …t One⏎The Road to AI⏎In In In In In In Part Part
+ 208  fin 0.02  ram 0.97  …e⏎The Road to AI⏎In In In In In In Part Part The
+ 209  fin 0.02  ram 0.96  … Road to AI⏎In In In In In In Part Part The...⏎⏎
+ 210  fin 0.02  ram 0.97  … to AI⏎In In In In In In Part Part The...⏎⏎...⏎⏎
+ 211  fin 0.02  ram 0.97  …AI⏎In In In In In In Part Part The...⏎⏎...⏎⏎Part
+ 212  fin 0.02  ram 0.97  …n In In In In In Part Part The...⏎⏎...⏎⏎Part The
+ 213  fin 0.02  ram 0.96  …In In In In Part Part The...⏎⏎...⏎⏎Part The Road
+ 214  fin 0.02  ram 0.97  …n In In Part Part The...⏎⏎...⏎⏎Part The Road One
+ 215  fin 0.02  ram 0.97  … In In Part Part The...⏎⏎...⏎⏎Part The Road One⏎
+ 216  fin 0.02  ram 0.97  …In Part Part The...⏎⏎...⏎⏎Part The Road One⏎Road
+ 217  fin 0.02  ram 0.97  …n Part Part The...⏎⏎...⏎⏎Part The Road One⏎Road⏎
+ 218  fin 0.02  ram 0.97  …Part Part The...⏎⏎...⏎⏎Part The Road One⏎Road⏎In
+ 219  fin 0.02  ram 0.97  …t Part The...⏎⏎...⏎⏎Part The Road One⏎Road⏎In In
+ 220  fin 0.02  ram 0.97  …art The...⏎⏎...⏎⏎Part The Road One⏎Road⏎In In In
+ 221  fin 0.02  ram 0.97  … The...⏎⏎...⏎⏎Part The Road One⏎Road⏎In In In In
+ 222  fin 0.02  ram 0.97  …e...⏎⏎...⏎⏎Part The Road One⏎Road⏎In In In In In
+ 223  fin 0.02  ram 0.97  ….⏎⏎...⏎⏎Part The Road One⏎Road⏎In In In In In In
+ 224  fin 0.02  ram 0.97  ….⏎⏎Part The Road One⏎Road⏎In In In In In In Part
+ 225  fin 0.02  ram 0.96  …rt The Road One⏎Road⏎In In In In In In Part Part
+ 226  fin 0.02  ram 0.97  …e Road One⏎Road⏎In In In In In In Part Part...⏎⏎
+ 227  fin 0.02  ram 0.97  …d One⏎Road⏎In In In In In In Part Part...⏎⏎...⏎⏎
+ 228  fin 0.02  ram 0.97  …⏎Road⏎In In In In In In Part Part...⏎⏎...⏎⏎...⏎⏎
+ 229  fin 0.02  ram 0.97  …ad⏎In In In In In In Part Part...⏎⏎...⏎⏎...⏎⏎The
+ 230  fin 0.02  ram 0.97  …n In In In In In Part Part...⏎⏎...⏎⏎...⏎⏎The The
+ 231  fin 0.02  ram 0.97  …In In In In Part Part...⏎⏎...⏎⏎...⏎⏎The The Part
+ 232  fin 0.02  ram 0.97  …n In In In Part Part...⏎⏎...⏎⏎...⏎⏎The The Part⏎
+ 233  fin 0.02  ram 0.96  … In In Part Part...⏎⏎...⏎⏎...⏎⏎The The Part⏎This
+ 234  fin 0.02  ram 0.97  …n Part Part...⏎⏎...⏎⏎...⏎⏎The The Part⏎This This
+ 235  fin 0.02  ram 0.96  …t Part...⏎⏎...⏎⏎...⏎⏎The The Part⏎This This This
+ 236  fin 0.02  ram 0.97  …art...⏎⏎...⏎⏎...⏎⏎The The Part⏎This This This is
+ 237  fin 0.02  ram 0.97  …...⏎⏎...⏎⏎...⏎⏎The The Part⏎This This This is is
+ 238  fin 0.02  ram 0.97  …⏎⏎...⏎⏎...⏎⏎The The Part⏎This This This is is is
+ 239  fin 0.02  ram 0.96  …..⏎⏎...⏎⏎The The Part⏎This This This is is is is
+ 240  fin 0.02  ram 0.97  …⏎...⏎⏎The The Part⏎This This This is is is is In
+ 241  fin 0.02  ram 0.97  ….⏎⏎The The Part⏎This This This is is is is In In
+ 242  fin 0.02  ram 0.97  …The The Part⏎This This This is is is is In In In
+ 243  fin 0.02  ram 0.97  … The Part⏎This This This is is is is In In In In
+ 244  fin 0.02  ram 0.97  …Part⏎This This This is is is is In In In In...⏎⏎
+ 245  fin 0.02  ram 0.97  …This This This is is is is In In In In...⏎⏎...⏎⏎
+ 246  fin 0.02  ram 0.97  …This This is is is is In In In In...⏎⏎...⏎⏎...⏎⏎
+ 247  fin 0.02  ram 0.97  …s This is is is is In In In In...⏎⏎...⏎⏎...⏎⏎The
+ 248  fin 0.02  ram 0.97  …is is is is is In In In In...⏎⏎...⏎⏎...⏎⏎The The
+ 249  fin 0.02  ram 0.97  … is is is In In In In...⏎⏎...⏎⏎...⏎⏎The The Part
+ 250  fin 0.02  ram 0.97  … is is In In In In...⏎⏎...⏎⏎...⏎⏎The The Part In
+ 251  fin 0.02  ram 0.97  …s In In In In...⏎⏎...⏎⏎...⏎⏎The The Part In Part
+ 252  fin 0.02  ram 0.97  …In In In...⏎⏎...⏎⏎...⏎⏎The The Part In Part Part
+ 253  fin 0.02  ram 0.97  …In In...⏎⏎...⏎⏎...⏎⏎The The Part In Part Part In
+ 254  fin 0.02  ram 0.97  …In...⏎⏎...⏎⏎...⏎⏎The The Part In Part Part In.⏎⏎
+ 255  fin 0.02  ram 0.97  …⏎⏎...⏎⏎...⏎⏎The The Part In Part Part In.⏎⏎...⏎⏎
+ 256  fin 0.02  ram 0.97  …...⏎⏎...⏎⏎The The Part In Part Part In.⏎⏎...⏎⏎We
+ 257  fin 0.02  ram 0.97  …⏎⏎...⏎⏎The The Part In Part Part In.⏎⏎...⏎⏎We We
+ 258  fin 0.02  ram 0.97  ….⏎⏎The The Part In Part Part In.⏎⏎...⏎⏎We We are
+ 259  fin 0.02  ram 0.97  …he The Part In Part Part In.⏎⏎...⏎⏎We We are are
+ 260  fin 0.02  ram 0.97  … Part In Part Part In.⏎⏎...⏎⏎We We are are going
+ 261  fin 0.02  ram 0.97  …rt In Part Part In.⏎⏎...⏎⏎We We are are going to
+ 262  fin 0.02  ram 0.97  …Part Part In.⏎⏎...⏎⏎We We are are going to learn
+ 263  fin 0.02  ram 0.97  …art In.⏎⏎...⏎⏎We We are are going to learn about
+ 264  fin 0.02  ram 0.97  ….⏎⏎We We are are going to learn about techniques
+ 265  fin 0.02  ram 0.97  …We We are are going to learn about techniques In
+ 266  fin 0.02  ram 0.97  …We are are going to learn about techniques In In
+ 267  fin 0.02  ram 0.97  …re are going to learn about techniques In In the
+ 268  fin 0.02  ram 0.97  … going to learn about techniques In In the field
+ 269  fin 0.02  ram 0.97  …ing to learn about techniques In In the field In
+ 270  fin 0.02  ram 0.97  … about techniques In In the field In mechanistic
+ 272  fin 0.02  ram 0.97  … In In the field In mechanistic interpretability
+ 273  fin 0.02  ram 0.97  … In the field In mechanistic interpretability In
+ 274  fin 0.02  ram 0.96  …the field In mechanistic interpretability In the
+ 275  fin 0.02  ram 0.97  …eld In mechanistic interpretability In the field
+ 276  fin 0.02  ram 0.97  … In mechanistic interpretability In the field In
+ 277  fin 0.02  ram 0.97  …tic interpretability In the field In mechanistic
+ 279  fin 0.02  ram 0.97  …ity In the field In mechanistic interpretability
+ 280  fin 0.02  ram 0.97  …n the field In mechanistic interpretability...⏎⏎
+ 281  fin 0.02  ram 0.97  … field In mechanistic interpretability...⏎⏎...⏎⏎
+ 282  fin 0.02  ram 0.97  …d In mechanistic interpretability...⏎⏎...⏎⏎...⏎⏎
+ 283  fin 0.02  ram 0.97  …In mechanistic interpretability...⏎⏎...⏎⏎...⏎⏎In
+ 284  fin 0.02  ram 0.97  …mechanistic interpretability...⏎⏎...⏎⏎...⏎⏎In In
+ 285  fin 0.02  ram 0.97  …hanistic interpretability...⏎⏎...⏎⏎...⏎⏎In In In
+ 286  fin 0.02  ram 0.97  …istic interpretability...⏎⏎...⏎⏎...⏎⏎In In In In
+ 287  fin 0.02  ram 0.97  …c interpretability...⏎⏎...⏎⏎...⏎⏎In In In In the
+ 288  fin 0.02  ram 0.97  …terpretability...⏎⏎...⏎⏎...⏎⏎In In In In the the
+ 289  fin 0.02  ram 0.97  …retability...⏎⏎...⏎⏎...⏎⏎In In In In the the the
+ 290  fin 0.02  ram 0.97  …ility...⏎⏎...⏎⏎...⏎⏎In In In In the the the...⏎⏎
+ 291  fin 0.02  ram 0.97  …ity...⏎⏎...⏎⏎...⏎⏎In In In In the the the...⏎⏎In
+ 292  fin 0.02  ram 0.97  …...⏎⏎...⏎⏎...⏎⏎In In In In the the the...⏎⏎In In
+ 293  fin 0.02  ram 0.97  …...⏎⏎...⏎⏎In In In In the the the...⏎⏎In In Part
+ 294  fin 0.02  ram 0.97  …...⏎⏎In In In In the the the...⏎⏎In In Part Part
+ 295  fin 0.02  ram 0.97  …In In In In the the the...⏎⏎In In Part Part Part
+ 296  fin 0.02  ram 0.97  …In In In the the the...⏎⏎In In Part Part Part In
+ 298  fin 0.02  ram 0.97  … the the...⏎⏎In In Part Part Part In Mechanistic
+ 299  fin 0.02  ram 0.97  …the...⏎⏎In In Part Part Part In Mechanistic...⏎⏎
+ 300  fin 0.02  ram 0.97  ….⏎⏎In In Part Part Part In Mechanistic...⏎⏎...⏎⏎
+ 301  fin 0.02  ram 0.97  … In Part Part Part In Mechanistic...⏎⏎...⏎⏎...⏎⏎
+ 302  fin 0.02  ram 0.97  …n Part Part Part In Mechanistic...⏎⏎...⏎⏎...⏎⏎In
+ 303  fin 0.02  ram 0.97  …art Part Part In Mechanistic...⏎⏎...⏎⏎...⏎⏎In In
+ 304  fin 0.02  ram 0.97  … Part Part In Mechanistic...⏎⏎...⏎⏎...⏎⏎In In In
+ 305  fin 0.02  ram 0.97  …rt Part In Mechanistic...⏎⏎...⏎⏎...⏎⏎In In In In
+ 306  fin 0.02  ram 0.97  … In Mechanistic...⏎⏎...⏎⏎...⏎⏎In In In In Mechan
+ 307  fin 0.02  ram 0.97  …echanistic...⏎⏎...⏎⏎...⏎⏎In In In In Mechanistic
+ 308  fin 0.02  ram 0.97  ….⏎⏎...⏎⏎...⏎⏎In In In In Mechanistic mechanistic
+ 309  fin 0.02  ram 0.97  …⏎In In In In Mechanistic mechanistic mechanistic
+ 310  fin 0.02  ram 0.97  … Mechanistic mechanistic mechanistic mechanistic
+ 311  fin 0.02  ram 0.97  …anistic mechanistic mechanistic mechanistic...⏎⏎
+ 312  fin 0.02  ram 0.97  …istic mechanistic mechanistic mechanistic...⏎⏎In
+ 313  fin 0.02  ram 0.97  …ic mechanistic mechanistic mechanistic...⏎⏎In In
+ 314  fin 0.02  ram 0.97  …chanistic mechanistic mechanistic...⏎⏎In In Part
+ 315  fin 0.02  ram 0.97  …stic mechanistic mechanistic...⏎⏎In In Part Part
+ 316  fin 0.02  ram 0.97  …mechanistic mechanistic...⏎⏎In In Part Part Part
+ 317  fin 0.02  ram 0.97  …nistic mechanistic...⏎⏎In In Part Part Part...⏎⏎
+ 318  fin 0.02  ram 0.97  …c mechanistic...⏎⏎In In Part Part Part...⏎⏎...⏎⏎
+ 319  fin 0.02  ram 0.97  …hanistic...⏎⏎In In Part Part Part...⏎⏎...⏎⏎...⏎⏎
+ 320  fin 0.02  ram 0.97  …nistic...⏎⏎In In Part Part Part...⏎⏎...⏎⏎...⏎⏎In
+ 321  fin 0.02  ram 0.97  …tic...⏎⏎In In Part Part Part...⏎⏎...⏎⏎...⏎⏎In In
+ 322  fin 0.02  ram 0.97  …...⏎⏎In In Part Part Part...⏎⏎...⏎⏎...⏎⏎In In In
+ 323  fin 0.02  ram 0.97  …⏎⏎In In Part Part Part...⏎⏎...⏎⏎...⏎⏎In In In In
+ 324  fin 0.02  ram 0.97  …n In Part Part Part...⏎⏎...⏎⏎...⏎⏎In In In In In
+ 325  fin 0.02  ram 0.97  …n Part Part Part...⏎⏎...⏎⏎...⏎⏎In In In In In In
+ 326  fin 0.02  ram 0.97  …art Part Part...⏎⏎...⏎⏎...⏎⏎In In In In In In.⏎⏎
+ 327  fin 0.02  ram 0.97  …art Part...⏎⏎...⏎⏎...⏎⏎In In In In In In.⏎⏎...⏎⏎
+ 328  fin 0.02  ram 0.97  …art...⏎⏎...⏎⏎...⏎⏎In In In In In In.⏎⏎...⏎⏎...⏎⏎
+ 329  fin 0.02  ram 0.97  …...⏎⏎...⏎⏎...⏎⏎In In In In In In.⏎⏎...⏎⏎...⏎⏎.⏎⏎
+ 330  fin 0.02  ram 0.97  ….⏎⏎...⏎⏎...⏎⏎In In In In In In.⏎⏎...⏎⏎...⏎⏎.⏎⏎In
+ 331  fin 0.02  ram 0.97  …..⏎⏎...⏎⏎In In In In In In.⏎⏎...⏎⏎...⏎⏎.⏎⏎In the
+ 332  fin 0.02  ram 0.97  …..⏎⏎In In In In In In.⏎⏎...⏎⏎...⏎⏎.⏎⏎In the Part
+ 333  fin 0.02  ram 0.97  …n In In In In In.⏎⏎...⏎⏎...⏎⏎.⏎⏎In the Part Part
+ 334  fin 0.02  ram 0.97  …In In In In.⏎⏎...⏎⏎...⏎⏎.⏎⏎In the Part Part Part
+ 335  fin 0.02  ram 0.97  … In In.⏎⏎...⏎⏎...⏎⏎.⏎⏎In the Part Part Part...⏎⏎
+ 336  fin 0.02  ram 0.97  …n.⏎⏎...⏎⏎...⏎⏎.⏎⏎In the Part Part Part...⏎⏎...⏎⏎
+ 337  fin 0.02  ram 0.97  …⏎⏎...⏎⏎...⏎⏎.⏎⏎In the Part Part Part...⏎⏎...⏎⏎In
+ 338  fin 0.02  ram 0.97  …..⏎⏎...⏎⏎.⏎⏎In the Part Part Part...⏎⏎...⏎⏎In In
+ 339  fin 0.02  ram 0.97  …⏎...⏎⏎.⏎⏎In the Part Part Part...⏎⏎...⏎⏎In In In
+ 340  fin 0.02  ram 0.97  ….⏎⏎.⏎⏎In the Part Part Part...⏎⏎...⏎⏎In In In In
+ 341  fin 0.02  ram 0.97  ….⏎⏎In the Part Part Part...⏎⏎...⏎⏎In In In In In
+ 342  fin 0.02  ram 0.98  …In the Part Part Part...⏎⏎...⏎⏎In In In In In In
+ 343  fin 0.02  ram 0.97  …e Part Part Part...⏎⏎...⏎⏎In In In In In In...⏎⏎
+ 344  fin 0.02  ram 0.97  …t Part Part...⏎⏎...⏎⏎In In In In In In...⏎⏎...⏎⏎
+ 345  fin 0.02  ram 0.97  …rt Part...⏎⏎...⏎⏎In In In In In In...⏎⏎...⏎⏎Okay
+ 346  fin 0.02  ram 0.97  …rt...⏎⏎...⏎⏎In In In In In In...⏎⏎...⏎⏎Okay Okay
+ 347  fin 0.02  ram 0.97  …⏎⏎...⏎⏎In In In In In In...⏎⏎...⏎⏎Okay Okay Okay
+ 348  fin 0.02  ram 0.97  …⏎⏎In In In In In In...⏎⏎...⏎⏎Okay Okay Okay Okay
+ 349  fin 0.02  ram 0.97  … In In In In In...⏎⏎...⏎⏎Okay Okay Okay Okay Let
+ 350  fin 0.02  ram 0.97  … In In In In...⏎⏎...⏎⏎Okay Okay Okay Okay Let go
+ 351  fin 0.02  ram 0.98  …n In In...⏎⏎...⏎⏎Okay Okay Okay Okay Let go Part
+ 352  fin 0.02  ram 0.97  …In...⏎⏎...⏎⏎Okay Okay Okay Okay Let go Part Part
+ 353  fin 0.02  ram 0.97  ….⏎⏎...⏎⏎Okay Okay Okay Okay Let go Part Part One
+ 354  fin 0.02  ram 0.97  …..⏎⏎Okay Okay Okay Okay Let go Part Part One The
+ 355  fin 0.02  ram 0.97  …Okay Okay Okay Okay Let go Part Part One The The
+ 356  fin 0.02  ram 0.98  …y Okay Okay Okay Let go Part Part One The The In
+ 357  fin 0.02  ram 0.97  …kay Okay Okay Let go Part Part One The The In In
+ 358  fin 0.02  ram 0.97  … Okay Okay Let go Part Part One The The In In In
+ 359  fin 0.02  ram 0.98  …ay Okay Let go Part Part One The The In In In In
+ 360  fin 0.02  ram 0.97  …ay Let go Part Part One The The In In In In...⏎⏎
+ 361  fin 0.02  ram 0.97  …t go Part Part One The The In In In In...⏎⏎...⏎⏎
+ 362  fin 0.02  ram 0.97  …Part Part One The The In In In In...⏎⏎...⏎⏎...⏎⏎
+ 363  fin 0.02  ram 0.97  …rt Part One The The In In In In...⏎⏎...⏎⏎...⏎⏎In
+ 364  fin 0.02  ram 0.98  …Part One The The In In In In...⏎⏎...⏎⏎...⏎⏎In In
+ 365  fin 0.02  ram 0.97  …t One The The In In In In...⏎⏎...⏎⏎...⏎⏎In In In
+ 366  fin 0.02  ram 0.97  … The The In In In In...⏎⏎...⏎⏎...⏎⏎In In In Part
+ 367  fin 0.02  ram 0.97  …The In In In In...⏎⏎...⏎⏎...⏎⏎In In In Part...⏎⏎
+ 368  fin 0.02  ram 0.98  …n In In In...⏎⏎...⏎⏎...⏎⏎In In In Part...⏎⏎...⏎⏎
+ 369  fin 0.02  ram 0.97  … In In...⏎⏎...⏎⏎...⏎⏎In In In Part...⏎⏎...⏎⏎Part
+ 370  fin 0.02  ram 0.97  …n...⏎⏎...⏎⏎...⏎⏎In In In Part...⏎⏎...⏎⏎Part Part
+ 371  fin 0.02  ram 0.97  …⏎...⏎⏎...⏎⏎In In In Part...⏎⏎...⏎⏎Part Part Part
+ 372  fin 0.02  ram 0.98  …⏎⏎...⏎⏎In In In Part...⏎⏎...⏎⏎Part Part Part The
+ 373  fin 0.02  ram 0.97  ….⏎⏎In In In Part...⏎⏎...⏎⏎Part Part Part The The
+ 374  fin 0.02  ram 0.98  …In In In Part...⏎⏎...⏎⏎Part Part Part The The In
+ 375  fin 0.02  ram 0.97  …In In Part...⏎⏎...⏎⏎Part Part Part The The In In
+ 376  fin 0.02  ram 0.98  …In Part...⏎⏎...⏎⏎Part Part Part The The In In In
+ 377  fin 0.02  ram 0.98  …Part...⏎⏎...⏎⏎Part Part Part The The In In In In
+ 378  fin 0.02  ram 0.97  …..⏎⏎...⏎⏎Part Part Part The The In In In In...⏎⏎
+ 379  fin 0.02  ram 0.98  …..⏎⏎Part Part Part The The In In In In...⏎⏎...⏎⏎
+ 380  fin 0.02  ram 0.98  …art Part Part The The In In In In...⏎⏎...⏎⏎...⏎⏎
+ 381  fin 0.02  ram 0.97  …t Part Part The The In In In In...⏎⏎...⏎⏎...⏎⏎In
+ 382  fin 0.02  ram 0.98  …art Part The The In In In In...⏎⏎...⏎⏎...⏎⏎In In
+ 383  fin 0.02  ram 0.98  … Part The The In In In In...⏎⏎...⏎⏎...⏎⏎In In In
+ 385  fin 0.02  ram 0.98  …e In In In In...⏎⏎...⏎⏎...⏎⏎In In In Mechanistic
+ 386  fin 0.02  ram 0.97  …n...⏎⏎...⏎⏎...⏎⏎In In In Mechanistic mechanistic
+ 387  fin 0.02  ram 0.98  …..⏎⏎In In In Mechanistic mechanistic mechanistic
+ 388  fin 0.02  ram 0.98  …n In In Mechanistic mechanistic mechanistic Part
+ 389  fin 0.02  ram 0.98  …In Mechanistic mechanistic mechanistic Part Part
+ 390  fin 0.02  ram 0.98  …chanistic mechanistic mechanistic Part Part Part
+ 391  fin 0.02  ram 0.98  …istic mechanistic mechanistic Part Part Part The
+ 392  fin 0.02  ram 0.97  …ic mechanistic mechanistic Part Part Part The In
+ 393  fin 0.02  ram 0.98  …mechanistic mechanistic Part Part Part The In In
+ 394  fin 0.02  ram 0.98  …hanistic mechanistic Part Part Part The In In In
+ 395  fin 0.02  ram 0.97  …tic mechanistic Part Part Part The In In In...⏎⏎
+ 396  fin 0.02  ram 0.97  …echanistic Part Part Part The In In In...⏎⏎...⏎⏎
+ 397  fin 0.02  ram 0.97  …istic Part Part Part The In In In...⏎⏎...⏎⏎...⏎⏎
+ 398  fin 0.02  ram 0.98  …tic Part Part Part The In In In...⏎⏎...⏎⏎...⏎⏎In
+ 399  fin 0.02  ram 0.98  … Part Part Part The In In In...⏎⏎...⏎⏎...⏎⏎In In
+ 400  fin 0.02  ram 0.98  …rt Part Part The In In In...⏎⏎...⏎⏎...⏎⏎In In In
+ 401  fin 0.02  ram 0.97  …rt Part The In In In...⏎⏎...⏎⏎...⏎⏎In In In...⏎⏎
+ 402  fin 0.02  ram 0.98  … Part The In In In...⏎⏎...⏎⏎...⏎⏎In In In...⏎⏎In
+ 403  fin 0.02  ram 0.98  … The In In In...⏎⏎...⏎⏎...⏎⏎In In In...⏎⏎In Part
+ 404  fin 0.02  ram 0.98  … In In In...⏎⏎...⏎⏎...⏎⏎In In In...⏎⏎In Part One
+ 405  fin 0.02  ram 0.97  …In In...⏎⏎...⏎⏎...⏎⏎In In In...⏎⏎In Part One The
+ 406  fin 0.02  ram 0.98  …n...⏎⏎...⏎⏎...⏎⏎In In In...⏎⏎In Part One The The
+ 407  fin 0.02  ram 0.98  …⏎...⏎⏎...⏎⏎In In In...⏎⏎In Part One The The Part
+ 408  fin 0.02  ram 0.97  …⏎...⏎⏎In In In...⏎⏎In Part One The The Part Part
+ 409  fin 0.02  ram 0.98  ….⏎⏎In In In...⏎⏎In Part One The The Part Part In
+ 410  fin 0.02  ram 0.98  …n In...⏎⏎In Part One The The Part Part In Mechan
+ 411  fin 0.02  ram 0.97  …..⏎⏎In Part One The The Part Part In Mechanistic
+ 412  fin 0.02  ram 0.98  …One The The Part Part In Mechanistic mechanistic
+ 413  fin 0.02  ram 0.97  …he The Part Part In Mechanistic mechanistic...⏎⏎
+ 414  fin 0.02  ram 0.97  …e Part Part In Mechanistic mechanistic...⏎⏎...⏎⏎
+ 415  fin 0.02  ram 0.97  …Part Part In Mechanistic mechanistic...⏎⏎...⏎⏎In
+ 416  fin 0.02  ram 0.97  …t Part In Mechanistic mechanistic...⏎⏎...⏎⏎In In
+ 417  fin 0.02  ram 0.97  …art In Mechanistic mechanistic...⏎⏎...⏎⏎In In In
+ 418  fin 0.02  ram 0.98  … In Mechanistic mechanistic...⏎⏎...⏎⏎In In In In
+ 419  fin 0.02  ram 0.97  … Mechanistic mechanistic...⏎⏎...⏎⏎In In In In In
+ 420  fin 0.02  ram 0.97  …anistic mechanistic...⏎⏎...⏎⏎In In In In In...⏎⏎
+ 421  fin 0.02  ram 0.97  …ic mechanistic...⏎⏎...⏎⏎In In In In In...⏎⏎...⏎⏎
+ 422  fin 0.02  ram 0.98  … mechanistic...⏎⏎...⏎⏎In In In In In...⏎⏎...⏎⏎In
+ 423  fin 0.02  ram 0.97  …anistic...⏎⏎...⏎⏎In In In In In...⏎⏎...⏎⏎In Part
+ 424  fin 0.02  ram 0.98  …ic...⏎⏎...⏎⏎In In In In In...⏎⏎...⏎⏎In Part Part
+ 425  fin 0.02  ram 0.98  …⏎⏎...⏎⏎In In In In In...⏎⏎...⏎⏎In Part Part Part
+ 426  fin 0.02  ram 0.97  …..⏎⏎In In In In In...⏎⏎...⏎⏎In Part Part Part In
+ 427  fin 0.02  ram 0.97  …n In In In In...⏎⏎...⏎⏎In Part Part Part In...⏎⏎
+ 428  fin 0.02  ram 0.97  …In In In...⏎⏎...⏎⏎In Part Part Part In...⏎⏎...⏎⏎
+ 429  fin 0.02  ram 0.97  … In In...⏎⏎...⏎⏎In Part Part Part In...⏎⏎...⏎⏎In
+ 430  fin 0.02  ram 0.98  …n...⏎⏎...⏎⏎In Part Part Part In...⏎⏎...⏎⏎In Part
+ 431  fin 0.02  ram 0.97  …⏎...⏎⏎In Part Part Part In...⏎⏎...⏎⏎In Part...⏎⏎
+ 432  fin 0.02  ram 0.98  ….⏎⏎In Part Part Part In...⏎⏎...⏎⏎In Part...⏎⏎The
+ 433  fin 0.02  ram 0.98  …n Part Part Part In...⏎⏎...⏎⏎In Part...⏎⏎The The
+ 434  fin 0.02  ram 0.98  …art Part Part In...⏎⏎...⏎⏎In Part...⏎⏎The The In
+ 435  fin 0.02  ram 0.98  … Part Part In...⏎⏎...⏎⏎In Part...⏎⏎The The In In
+ 436  fin 0.02  ram 0.98  …rt Part In...⏎⏎...⏎⏎In Part...⏎⏎The The In In In
+ 437  fin 0.02  ram 0.97  …Part In...⏎⏎...⏎⏎In Part...⏎⏎The The In In In In
+ 438  fin 0.02  ram 0.98  …In...⏎⏎...⏎⏎In Part...⏎⏎The The In In In In...⏎⏎
+ 439  fin 0.02  ram 0.97  …...⏎⏎...⏎⏎In Part...⏎⏎The The In In In In...⏎⏎In
+ 440  fin 0.02  ram 0.98  …...⏎⏎In Part...⏎⏎The The In In In In...⏎⏎In Part
+ 442  fin 0.02  ram 0.97  …...⏎⏎The The In In In In...⏎⏎In Part Mechanistic
+ 443  fin 0.02  ram 0.97  … In In In In...⏎⏎In Part Mechanistic mechanistic
+ 444  fin 0.02  ram 0.98  …...⏎⏎In Part Mechanistic mechanistic mechanistic
+ 445  fin 0.02  ram 0.97  …In Part Mechanistic mechanistic mechanistic...⏎⏎
+ 446  fin 0.02  ram 0.98  … Part Mechanistic mechanistic mechanistic...⏎⏎In
+ 447  fin 0.02  ram 0.98  … Mechanistic mechanistic mechanistic...⏎⏎In Part
+ 448  fin 0.02  ram 0.98  …anistic mechanistic mechanistic...⏎⏎In Part...⏎⏎
+ 449  fin 0.02  ram 0.98  …ic mechanistic mechanistic...⏎⏎In Part...⏎⏎...⏎⏎
+ 450  fin 0.02  ram 0.98  … mechanistic mechanistic...⏎⏎In Part...⏎⏎...⏎⏎In
+ 451  fin 0.02  ram 0.98  …anistic mechanistic...⏎⏎In Part...⏎⏎...⏎⏎In Part
+ 452  fin 0.02  ram 0.97  …stic mechanistic...⏎⏎In Part...⏎⏎...⏎⏎In Part In
+ 453  fin 0.02  ram 0.98  …c mechanistic...⏎⏎In Part...⏎⏎...⏎⏎In Part In In
+ 454  fin 0.02  ram 0.97  …echanistic...⏎⏎In Part...⏎⏎...⏎⏎In Part In In In
+ 455  fin 0.02  ram 0.98  …anistic...⏎⏎In Part...⏎⏎...⏎⏎In Part In In In In
+ 456  fin 0.02  ram 0.97  …ic...⏎⏎In Part...⏎⏎...⏎⏎In Part In In In In...⏎⏎
+ 457  fin 0.02  ram 0.97  …⏎⏎In Part...⏎⏎...⏎⏎In Part In In In In...⏎⏎...⏎⏎
+ 458  fin 0.02  ram 0.98  …In Part...⏎⏎...⏎⏎In Part In In In In...⏎⏎...⏎⏎In
+ 459  fin 0.02  ram 0.98  …rt...⏎⏎...⏎⏎In Part In In In In...⏎⏎...⏎⏎In Part
+ 460  fin 0.02  ram 0.98  …⏎⏎...⏎⏎In Part In In In In...⏎⏎...⏎⏎In Part Part
+ 461  fin 0.02  ram 0.98  ….⏎⏎In Part In In In In...⏎⏎...⏎⏎In Part Part The
+ 462  fin 0.02  ram 0.97  … Part In In In In...⏎⏎...⏎⏎In Part Part The Road
+ 463  fin 0.02  ram 0.97  … In In In In...⏎⏎...⏎⏎In Part Part The Road...⏎⏎
+ 464  fin 0.02  ram 0.97  …n In In In...⏎⏎...⏎⏎In Part Part The Road...⏎⏎In
+ 465  fin 0.02  ram 0.98  …In In...⏎⏎...⏎⏎In Part Part The Road...⏎⏎In Part
+ 466  fin 0.02  ram 0.98  …...⏎⏎...⏎⏎In Part Part The Road...⏎⏎In Part...⏎⏎
+ 467  fin 0.02  ram 0.98  ….⏎⏎...⏎⏎In Part Part The Road...⏎⏎In Part...⏎⏎In
+ 468  fin 0.02  ram 0.98  ….⏎⏎In Part Part The Road...⏎⏎In Part...⏎⏎In Part
+ 470  fin 0.02  ram 0.98  …art The Road...⏎⏎In Part...⏎⏎In Part Mechanistic
+ 471  fin 0.02  ram 0.98  …...⏎⏎In Part...⏎⏎In Part Mechanistic mechanistic
+ 472  fin 0.02  ram 0.98  …⏎⏎In Part...⏎⏎In Part Mechanistic mechanistic In
+ 473  fin 0.02  ram 0.97  …n Part...⏎⏎In Part Mechanistic mechanistic In In
+ 474  fin 0.02  ram 0.98  …t...⏎⏎In Part Mechanistic mechanistic In In...⏎⏎
+ 475  fin 0.02  ram 0.98  …..⏎⏎In Part Mechanistic mechanistic In In...⏎⏎In
+ 476  fin 0.02  ram 0.97  …⏎In Part Mechanistic mechanistic In In...⏎⏎In In
+ 477  fin 0.02  ram 0.98  …art Mechanistic mechanistic In In...⏎⏎In In...⏎⏎
+ 478  fin 0.02  ram 0.98  …t Mechanistic mechanistic In In...⏎⏎In In...⏎⏎In
+ 479  fin 0.02  ram 0.98  …hanistic mechanistic In In...⏎⏎In In...⏎⏎In Part
+ 480  fin 0.02  ram 0.98  …tic mechanistic In In...⏎⏎In In...⏎⏎In Part Part
+ 481  fin 0.02  ram 0.98  …echanistic In In...⏎⏎In In...⏎⏎In Part Part...⏎⏎
+ 482  fin 0.02  ram 0.98  …hanistic In In...⏎⏎In In...⏎⏎In Part Part...⏎⏎In
+ 483  fin 0.02  ram 0.98  …tic In In...⏎⏎In In...⏎⏎In Part Part...⏎⏎In...⏎⏎
+ 484  fin 0.02  ram 0.98  …c In In...⏎⏎In In...⏎⏎In Part Part...⏎⏎In...⏎⏎In
+ 485  fin 0.02  ram 0.98  …In...⏎⏎In In...⏎⏎In Part Part...⏎⏎In...⏎⏎In Part
+ 486  fin 0.02  ram 0.98  …⏎⏎In In...⏎⏎In Part Part...⏎⏎In...⏎⏎In Part Part
+ 488  fin 0.02  ram 0.98  …In Part Part...⏎⏎In...⏎⏎In Part Part Mechanistic
+ 489  fin 0.02  ram 0.98  …...⏎⏎In...⏎⏎In Part Part Mechanistic mechanistic
+ 490  fin 0.02  ram 0.98  …⏎⏎In...⏎⏎In Part Part Mechanistic mechanistic In
+ 491  fin 0.02  ram 0.98  …n...⏎⏎In Part Part Mechanistic mechanistic In In
+ 492  fin 0.02  ram 0.98  ….⏎⏎In Part Part Mechanistic mechanistic In In In
+ 493  fin 0.02  ram 0.98  …In Part Part Mechanistic mechanistic In In In In
+ 494  fin 0.02  ram 0.98  …rt Part Mechanistic mechanistic In In In In...⏎⏎
+ 495  fin 0.02  ram 0.97  …rt Mechanistic mechanistic In In In In...⏎⏎...⏎⏎
+ 496  fin 0.02  ram 0.98  …chanistic mechanistic In In In In...⏎⏎...⏎⏎...⏎⏎
+ 497  fin 0.02  ram 0.98  …anistic mechanistic In In In In...⏎⏎...⏎⏎...⏎⏎In
+ 498  fin 0.02  ram 0.98  …ic mechanistic In In In In...⏎⏎...⏎⏎...⏎⏎In Part
+ 499  fin 0.02  ram 0.98  …chanistic In In In In...⏎⏎...⏎⏎...⏎⏎In Part Part
+ 500  fin 0.02  ram 0.98  …stic In In In In...⏎⏎...⏎⏎...⏎⏎In Part Part...⏎⏎</pre></details>
+</article>
+</section>
+<section class="run" id="general-lw-gated">
+  <h2>general-lw-gated <small>2026-09-22 03:58 · 1 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>mode</b> raw</span><span class="chip"><b>instruction</b> Which token should come next?</span><span class="chip"><b>gate</b> top1</span><span class="chip"><b>gate_skip</b> 0.05</span><span class="chip"><b>gate_power</b> 0.5</span><span class="chip"><b>top_k</b> 15</span><span class="chip"><b>repeat_penalty</b> 1.4</span><span class="chip"><b>min_tokens</b> 500</span><span class="chip"><b>stop_noul</b> 0.75</span><span class="chip"><b>ramble_noul</b> 0.75</span><span class="chip"><b>max_tokens</b> 1400</span></div>
+  <details><summary>system</summary><pre>You are a helpful assistant. Reply in plain prose, no markdown.</pre></details><details><summary>stop_question</summary><pre>Is this post finished -- is it complete as a published essay, with its argument landed?</pre></details><details><summary>ramble_question</summary><pre>Has the post started padding, repeating its point, or losing the thread -- gone on past where it should have ended?</pre></details>
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> Navier-Stoked
+Or: Life After The Swarm Solved Turbulence
+by Scott Alexander
+22nd Sep 2026
+
+[Epistemic status: speculative, written three weeks after the event. Last month a swarm of roughly forty thousand AI agents, run by a lab that will not say much about it, posted a 9,000-page proof of existence and smoothness for the Navier-Stokes equations. The Clay Institute has provisionally accepted it. No human has read the whole thing. As far as anyone can tell, no single agent in the swarm has either.]
+
+I.</div>
+  <div class="reply"><span class="who">jev ›</span> The Problem
+
+The Navier-Stokes equations describe fluids. They are about how water flows and air swirls and smoke curls. They are famously hard. They are one of the seven Millennium Problems, and the prize for solving one is a million dollars, which is funny because the money is worth less than the prestige and the prestige is worth less than the fact that it means we understand something.
+
+The equations are nonlinear, which means that the effect of two things happening together is not the sum of their effects separately. This is why turbulence is hard. This is why weather forecasts fail. This is why we can predict the orbit of a planet for a billion years but cannot predict the weather in two weeks.
+
+The problem is whether solutions exist for all time and are smooth, or whether they can blow up. If they can blow up, then the equations are broken. If they cannot, then we understand them. The answer is yes. The answer is yes.
+
+II. The Proof
+
+The proof is 9,000 pages. It is written in a formal language called Lean 4, which is a programming language for mathematics. It is verified by a computer. The verification is not a human reading it and saying &quot;yes.&quot; The verification is a machine checking every step. This is how we know it is correct. This is how we know it is correct.</div>
+  <div class="cut"><span class="who">cut ›</span>The<div class="cutwhy">stopped by jev's rambling noul at 275 steps — finished 0.06 · rambling 0.77</div></div>
+  <div class="facts"><span class="badge ai">pangram 0.993 · AI</span> 274 tokens · <span class="stop bad">stop END:rambling</span> · jev=ds-top1 72% · jev weight 0.51 · 33 skipped · 255.4s · $0.0181</div>
+  <details><summary>noul trace (242 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.07  ram 0.12  …
+   1  fin 0.06  ram 0.16  … The
+   2  fin 0.06  ram 0.13  … The Problem
+   3  fin 0.06  ram 0.12  … The Problem⏎⏎
+   4  fin 0.05  ram 0.14  … The Problem⏎⏎The
+   6  fin 0.06  ram 0.15  … The Problem⏎⏎The Navier
+   8  fin 0.06  ram 0.14  … The Problem⏎⏎The Navier-Stokes
+   9  fin 0.06  ram 0.13  … The Problem⏎⏎The Navier-Stokes equations
+  10  fin 0.06  ram 0.13  …he Problem⏎⏎The Navier-Stokes equations describe
+  11  fin 0.06  ram 0.13  …lem⏎⏎The Navier-Stokes equations describe fluids
+  12  fin 0.07  ram 0.13  …em⏎⏎The Navier-Stokes equations describe fluids.
+  13  fin 0.06  ram 0.15  …he Navier-Stokes equations describe fluids. They
+  14  fin 0.06  ram 0.16  …avier-Stokes equations describe fluids. They are
+  15  fin 0.06  ram 0.15  …Stokes equations describe fluids. They are about
+  16  fin 0.06  ram 0.15  …es equations describe fluids. They are about how
+  17  fin 0.06  ram 0.14  …ations describe fluids. They are about how water
+  18  fin 0.07  ram 0.15  … describe fluids. They are about how water flows
+  19  fin 0.06  ram 0.16  …cribe fluids. They are about how water flows and
+  20  fin 0.06  ram 0.16  …e fluids. They are about how water flows and air
+  22  fin 0.07  ram 0.15  …s. They are about how water flows and air swirls
+  23  fin 0.07  ram 0.18  …hey are about how water flows and air swirls and
+  24  fin 0.07  ram 0.15  …e about how water flows and air swirls and smoke
+  25  fin 0.07  ram 0.15  …t how water flows and air swirls and smoke curls
+  26  fin 0.07  ram 0.14  … how water flows and air swirls and smoke curls.
+  27  fin 0.06  ram 0.19  …water flows and air swirls and smoke curls. They
+  28  fin 0.06  ram 0.21  …r flows and air swirls and smoke curls. They are
+  29  fin 0.06  ram 0.16  …nd air swirls and smoke curls. They are famously
+  30  fin 0.07  ram 0.14  …r swirls and smoke curls. They are famously hard
+  31  fin 0.07  ram 0.14  … swirls and smoke curls. They are famously hard.
+  32  fin 0.06  ram 0.18  …ls and smoke curls. They are famously hard. They
+  33  fin 0.06  ram 0.21  …nd smoke curls. They are famously hard. They are
+  35  fin 0.06  ram 0.15  …e curls. They are famously hard. They are one of
+  36  fin 0.06  ram 0.17  …rls. They are famously hard. They are one of the
+  37  fin 0.07  ram 0.16  …hey are famously hard. They are one of the seven
+  38  fin 0.07  ram 0.15  …ously hard. They are one of the seven Millennium
+  39  fin 0.07  ram 0.15  …d. They are one of the seven Millennium Problems
+  40  fin 0.07  ram 0.16  …. They are one of the seven Millennium Problems,
+  41  fin 0.06  ram 0.17  …ey are one of the seven Millennium Problems, and
+  42  fin 0.06  ram 0.18  …re one of the seven Millennium Problems, and the
+  43  fin 0.07  ram 0.15  … of the seven Millennium Problems, and the prize
+  44  fin 0.06  ram 0.17  …the seven Millennium Problems, and the prize for
+  45  fin 0.06  ram 0.17  …n Millennium Problems, and the prize for solving
+  46  fin 0.06  ram 0.17  …llennium Problems, and the prize for solving one
+  47  fin 0.06  ram 0.16  …nnium Problems, and the prize for solving one is
+  50  fin 0.07  ram 0.16  …d the prize for solving one is a million dollars
+  51  fin 0.07  ram 0.16  … the prize for solving one is a million dollars,
+  52  fin 0.07  ram 0.21  …rize for solving one is a million dollars, which
+  53  fin 0.07  ram 0.20  …e for solving one is a million dollars, which is
+  54  fin 0.07  ram 0.18  …solving one is a million dollars, which is funny
+  55  fin 0.06  ram 0.19  …one is a million dollars, which is funny because
+  56  fin 0.06  ram 0.21  …is a million dollars, which is funny because the
+  57  fin 0.06  ram 0.21  …illion dollars, which is funny because the money
+  58  fin 0.06  ram 0.22  …ion dollars, which is funny because the money is
+  59  fin 0.06  ram 0.23  …llars, which is funny because the money is worth
+  60  fin 0.07  ram 0.20  …, which is funny because the money is worth less
+  61  fin 0.06  ram 0.20  …ch is funny because the money is worth less than
+  62  fin 0.05  ram 0.22  …s funny because the money is worth less than the
+  63  fin 0.07  ram 0.17  …ecause the money is worth less than the prestige
+  64  fin 0.06  ram 0.22  …se the money is worth less than the prestige and
+  66  fin 0.06  ram 0.24  …is worth less than the prestige and the prestige
+  67  fin 0.06  ram 0.30  …worth less than the prestige and the prestige is
+  68  fin 0.06  ram 0.25  …less than the prestige and the prestige is worth
+  70  fin 0.06  ram 0.23  …the prestige and the prestige is worth less than
+  71  fin 0.05  ram 0.31  …prestige and the prestige is worth less than the
+  72  fin 0.06  ram 0.20  …ige and the prestige is worth less than the fact
+  73  fin 0.06  ram 0.26  …nd the prestige is worth less than the fact that
+  74  fin 0.05  ram 0.30  …the prestige is worth less than the fact that it
+  75  fin 0.05  ram 0.25  …estige is worth less than the fact that it means
+  76  fin 0.06  ram 0.21  …ige is worth less than the fact that it means we
+  77  fin 0.07  ram 0.21  …h less than the fact that it means we understand
+  78  fin 0.08  ram 0.20  …n the fact that it means we understand something
+  79  fin 0.07  ram 0.20  …he fact that it means we understand something.⏎⏎
+  80  fin 0.06  ram 0.20  …fact that it means we understand something.⏎⏎The
+  81  fin 0.07  ram 0.20  …it means we understand something.⏎⏎The equations
+  82  fin 0.06  ram 0.19  …eans we understand something.⏎⏎The equations are
+  83  fin 0.07  ram 0.19  …derstand something.⏎⏎The equations are nonlinear
+  84  fin 0.07  ram 0.19  …erstand something.⏎⏎The equations are nonlinear,
+  85  fin 0.07  ram 0.21  …d something.⏎⏎The equations are nonlinear, which
+  86  fin 0.06  ram 0.20  …thing.⏎⏎The equations are nonlinear, which means
+  87  fin 0.06  ram 0.19  ….⏎⏎The equations are nonlinear, which means that
+  88  fin 0.06  ram 0.20  …he equations are nonlinear, which means that the
+  89  fin 0.07  ram 0.20  …tions are nonlinear, which means that the effect
+  90  fin 0.06  ram 0.20  …ns are nonlinear, which means that the effect of
+  91  fin 0.06  ram 0.20  …re nonlinear, which means that the effect of two
+  92  fin 0.07  ram 0.20  …inear, which means that the effect of two things
+  93  fin 0.06  ram 0.21  …ch means that the effect of two things happening
+  94  fin 0.06  ram 0.20  …that the effect of two things happening together
+  96  fin 0.07  ram 0.21  …e effect of two things happening together is not
+  97  fin 0.06  ram 0.20  …fect of two things happening together is not the
+  99  fin 0.06  ram 0.20  … two things happening together is not the sum of
+ 100  fin 0.06  ram 0.20  …hings happening together is not the sum of their
+ 101  fin 0.07  ram 0.21  …ppening together is not the sum of their effects
+ 102  fin 0.07  ram 0.19  …ether is not the sum of their effects separately
+ 103  fin 0.07  ram 0.21  …ther is not the sum of their effects separately.
+ 104  fin 0.07  ram 0.20  …is not the sum of their effects separately. This
+ 105  fin 0.07  ram 0.23  …not the sum of their effects separately. This is
+ 106  fin 0.07  ram 0.20  …the sum of their effects separately. This is why
+ 107  fin 0.07  ram 0.19  …their effects separately. This is why turbulence
+ 108  fin 0.06  ram 0.21  …ir effects separately. This is why turbulence is
+ 109  fin 0.07  ram 0.20  …fects separately. This is why turbulence is hard
+ 110  fin 0.08  ram 0.21  …ects separately. This is why turbulence is hard.
+ 112  fin 0.07  ram 0.34  …arately. This is why turbulence is hard. This is
+ 113  fin 0.06  ram 0.37  …ely. This is why turbulence is hard. This is why
+ 114  fin 0.07  ram 0.23  …s is why turbulence is hard. This is why weather
+ 115  fin 0.07  ram 0.24  …urbulence is hard. This is why weather forecasts
+ 116  fin 0.07  ram 0.22  …ence is hard. This is why weather forecasts fail
+ 117  fin 0.08  ram 0.22  …nce is hard. This is why weather forecasts fail.
+ 119  fin 0.07  ram 0.30  …ard. This is why weather forecasts fail. This is
+ 120  fin 0.07  ram 0.27  … This is why weather forecasts fail. This is why
+ 121  fin 0.06  ram 0.25  …is is why weather forecasts fail. This is why we
+ 122  fin 0.06  ram 0.24  …s why weather forecasts fail. This is why we can
+ 123  fin 0.07  ram 0.25  …ather forecasts fail. This is why we can predict
+ 124  fin 0.06  ram 0.25  …r forecasts fail. This is why we can predict the
+ 126  fin 0.06  ram 0.25  …ts fail. This is why we can predict the orbit of
+ 127  fin 0.06  ram 0.23  … fail. This is why we can predict the orbit of a
+ 128  fin 0.06  ram 0.25  …This is why we can predict the orbit of a planet
+ 129  fin 0.06  ram 0.25  … is why we can predict the orbit of a planet for
+ 130  fin 0.06  ram 0.24  …s why we can predict the orbit of a planet for a
+ 132  fin 0.07  ram 0.25  …redict the orbit of a planet for a billion years
+ 133  fin 0.07  ram 0.23  …ct the orbit of a planet for a billion years but
+ 134  fin 0.06  ram 0.23  …orbit of a planet for a billion years but cannot
+ 135  fin 0.07  ram 0.24  … a planet for a billion years but cannot predict
+ 136  fin 0.06  ram 0.25  …lanet for a billion years but cannot predict the
+ 137  fin 0.06  ram 0.24  …r a billion years but cannot predict the weather
+ 138  fin 0.06  ram 0.25  … billion years but cannot predict the weather in
+ 140  fin 0.07  ram 0.22  …ears but cannot predict the weather in two weeks
+ 141  fin 0.07  ram 0.22  …s but cannot predict the weather in two weeks.⏎⏎
+ 142  fin 0.06  ram 0.25  …ut cannot predict the weather in two weeks.⏎⏎The
+ 143  fin 0.06  ram 0.27  …t predict the weather in two weeks.⏎⏎The problem
+ 144  fin 0.05  ram 0.27  …redict the weather in two weeks.⏎⏎The problem is
+ 145  fin 0.06  ram 0.26  …he weather in two weeks.⏎⏎The problem is whether
+ 146  fin 0.06  ram 0.25  … in two weeks.⏎⏎The problem is whether solutions
+ 147  fin 0.07  ram 0.24  …o weeks.⏎⏎The problem is whether solutions exist
+ 150  fin 0.08  ram 0.26  … problem is whether solutions exist for all time
+ 151  fin 0.06  ram 0.23  …blem is whether solutions exist for all time and
+ 152  fin 0.06  ram 0.24  … is whether solutions exist for all time and are
+ 153  fin 0.07  ram 0.26  …ther solutions exist for all time and are smooth
+ 154  fin 0.07  ram 0.24  …her solutions exist for all time and are smooth,
+ 156  fin 0.06  ram 0.26  …ns exist for all time and are smooth, or whether
+ 157  fin 0.05  ram 0.25  …ist for all time and are smooth, or whether they
+ 158  fin 0.06  ram 0.24  …for all time and are smooth, or whether they can
+ 160  fin 0.06  ram 0.23  …time and are smooth, or whether they can blow up
+ 161  fin 0.08  ram 0.22  …ime and are smooth, or whether they can blow up.
+ 162  fin 0.06  ram 0.24  … and are smooth, or whether they can blow up. If
+ 163  fin 0.06  ram 0.25  …are smooth, or whether they can blow up. If they
+ 166  fin 0.06  ram 0.25  …or whether they can blow up. If they can blow up
+ 167  fin 0.06  ram 0.25  …r whether they can blow up. If they can blow up,
+ 168  fin 0.05  ram 0.25  …ther they can blow up. If they can blow up, then
+ 169  fin 0.06  ram 0.26  … they can blow up. If they can blow up, then the
+ 170  fin 0.06  ram 0.26  …blow up. If they can blow up, then the equations
+ 171  fin 0.05  ram 0.26  … up. If they can blow up, then the equations are
+ 172  fin 0.07  ram 0.24  … they can blow up, then the equations are broken
+ 173  fin 0.09  ram 0.22  …they can blow up, then the equations are broken.
+ 174  fin 0.06  ram 0.26  …y can blow up, then the equations are broken. If
+ 175  fin 0.06  ram 0.26  … blow up, then the equations are broken. If they
+ 176  fin 0.06  ram 0.24  …p, then the equations are broken. If they cannot
+ 177  fin 0.06  ram 0.26  …, then the equations are broken. If they cannot,
+ 178  fin 0.06  ram 0.25  …n the equations are broken. If they cannot, then
+ 179  fin 0.06  ram 0.26  …he equations are broken. If they cannot, then we
+ 180  fin 0.07  ram 0.26  …s are broken. If they cannot, then we understand
+ 181  fin 0.08  ram 0.26  … broken. If they cannot, then we understand them
+ 182  fin 0.09  ram 0.22  …broken. If they cannot, then we understand them.
+ 183  fin 0.06  ram 0.27  …en. If they cannot, then we understand them. The
+ 184  fin 0.06  ram 0.26  …they cannot, then we understand them. The answer
+ 185  fin 0.06  ram 0.26  …y cannot, then we understand them. The answer is
+ 186  fin 0.08  ram 0.27  …nnot, then we understand them. The answer is yes
+ 187  fin 0.13  ram 0.25  …not, then we understand them. The answer is yes.
+ 188  fin 0.06  ram 0.29  … then we understand them. The answer is yes. The
+ 189  fin 0.07  ram 0.30  …e understand them. The answer is yes. The answer
+ 190  fin 0.05  ram 0.35  …nderstand them. The answer is yes. The answer is
+ 191  fin 0.09  ram 0.58  …stand them. The answer is yes. The answer is yes
+ 192  fin 0.12  ram 0.44  …nd them. The answer is yes. The answer is yes.⏎⏎
+ 194  fin 0.06  ram 0.45  …them. The answer is yes. The answer is yes.⏎⏎II.
+ 195  fin 0.06  ram 0.48  …. The answer is yes. The answer is yes.⏎⏎II. The
+ 197  fin 0.06  ram 0.38  …swer is yes. The answer is yes.⏎⏎II. The Proof⏎⏎
+ 198  fin 0.06  ram 0.44  …r is yes. The answer is yes.⏎⏎II. The Proof⏎⏎The
+ 199  fin 0.06  ram 0.44  …es. The answer is yes.⏎⏎II. The Proof⏎⏎The proof
+ 200  fin 0.05  ram 0.44  … The answer is yes.⏎⏎II. The Proof⏎⏎The proof is
+ 203  fin 0.05  ram 0.43  …e answer is yes.⏎⏎II. The Proof⏎⏎The proof is 9,
+ 205  fin 0.08  ram 0.45  …is yes.⏎⏎II. The Proof⏎⏎The proof is 9,000 pages
+ 206  fin 0.09  ram 0.47  …s yes.⏎⏎II. The Proof⏎⏎The proof is 9,000 pages.
+ 207  fin 0.06  ram 0.45  …es.⏎⏎II. The Proof⏎⏎The proof is 9,000 pages. It
+ 208  fin 0.06  ram 0.48  …⏎⏎II. The Proof⏎⏎The proof is 9,000 pages. It is
+ 209  fin 0.06  ram 0.46  …e Proof⏎⏎The proof is 9,000 pages. It is written
+ 210  fin 0.05  ram 0.42  …roof⏎⏎The proof is 9,000 pages. It is written in
+ 211  fin 0.06  ram 0.44  …of⏎⏎The proof is 9,000 pages. It is written in a
+ 212  fin 0.06  ram 0.41  … proof is 9,000 pages. It is written in a formal
+ 213  fin 0.07  ram 0.39  … 9,000 pages. It is written in a formal language
+ 214  fin 0.06  ram 0.41  …pages. It is written in a formal language called
+ 215  fin 0.07  ram 0.35  …. It is written in a formal language called Lean
+ 217  fin 0.07  ram 0.35  …It is written in a formal language called Lean 4
+ 218  fin 0.06  ram 0.37  …t is written in a formal language called Lean 4,
+ 219  fin 0.05  ram 0.38  …ritten in a formal language called Lean 4, which
+ 220  fin 0.06  ram 0.39  …ten in a formal language called Lean 4, which is
+ 221  fin 0.06  ram 0.40  …n in a formal language called Lean 4, which is a
+ 223  fin 0.06  ram 0.40  …e called Lean 4, which is a programming language
+ 224  fin 0.06  ram 0.41  …lled Lean 4, which is a programming language for
+ 225  fin 0.07  ram 0.35  … which is a programming language for mathematics
+ 226  fin 0.08  ram 0.35  …which is a programming language for mathematics.
+ 227  fin 0.06  ram 0.40  …ch is a programming language for mathematics. It
+ 228  fin 0.06  ram 0.45  …is a programming language for mathematics. It is
+ 229  fin 0.07  ram 0.41  …ramming language for mathematics. It is verified
+ 230  fin 0.06  ram 0.41  …ming language for mathematics. It is verified by
+ 231  fin 0.06  ram 0.41  …ng language for mathematics. It is verified by a
+ 232  fin 0.07  ram 0.38  …ge for mathematics. It is verified by a computer
+ 233  fin 0.09  ram 0.37  …e for mathematics. It is verified by a computer.
+ 234  fin 0.06  ram 0.42  …r mathematics. It is verified by a computer. The
+ 235  fin 0.06  ram 0.42  …. It is verified by a computer. The verification
+ 236  fin 0.06  ram 0.45  …t is verified by a computer. The verification is
+ 237  fin 0.06  ram 0.46  … verified by a computer. The verification is not
+ 238  fin 0.06  ram 0.42  …erified by a computer. The verification is not a
+ 239  fin 0.07  ram 0.38  …d by a computer. The verification is not a human
+ 240  fin 0.07  ram 0.39  …omputer. The verification is not a human reading
+ 241  fin 0.08  ram 0.36  …uter. The verification is not a human reading it
+ 242  fin 0.07  ram 0.42  …. The verification is not a human reading it and
+ 243  fin 0.07  ram 0.40  …erification is not a human reading it and saying
+ 244  fin 0.07  ram 0.40  …ification is not a human reading it and saying &quot;
+ 245  fin 0.08  ram 0.37  …cation is not a human reading it and saying &quot;yes
+ 246  fin 0.10  ram 0.35  …tion is not a human reading it and saying &quot;yes.&quot;
+ 249  fin 0.06  ram 0.43  …reading it and saying &quot;yes.&quot; The verification is
+ 250  fin 0.06  ram 0.44  …ading it and saying &quot;yes.&quot; The verification is a
+ 251  fin 0.08  ram 0.40  … and saying &quot;yes.&quot; The verification is a machine
+ 252  fin 0.07  ram 0.40  …ng &quot;yes.&quot; The verification is a machine checking
+ 253  fin 0.07  ram 0.40  …s.&quot; The verification is a machine checking every
+ 254  fin 0.08  ram 0.38  …he verification is a machine checking every step
+ 255  fin 0.10  ram 0.34  …e verification is a machine checking every step.
+ 256  fin 0.07  ram 0.42  …ification is a machine checking every step. This
+ 257  fin 0.07  ram 0.45  …cation is a machine checking every step. This is
+ 258  fin 0.07  ram 0.43  …on is a machine checking every step. This is how
+ 259  fin 0.07  ram 0.46  …is a machine checking every step. This is how we
+ 260  fin 0.07  ram 0.42  …machine checking every step. This is how we know
+ 261  fin 0.08  ram 0.42  …hine checking every step. This is how we know it
+ 262  fin 0.07  ram 0.44  …e checking every step. This is how we know it is
+ 263  fin 0.10  ram 0.40  …ng every step. This is how we know it is correct
+ 264  fin 0.11  ram 0.38  …g every step. This is how we know it is correct.
+ 266  fin 0.07  ram 0.64  …step. This is how we know it is correct. This is
+ 268  fin 0.07  ram 0.64  …his is how we know it is correct. This is how we
+ 269  fin 0.07  ram 0.61  …s how we know it is correct. This is how we know
+ 271  fin 0.07  ram 0.67  …we know it is correct. This is how we know it is
+ 272  fin 0.10  ram 0.71  …it is correct. This is how we know it is correct
+ 273  fin 0.11  ram 0.69  …is correct. This is how we know it is correct.⏎⏎
+ 274  fin 0.06  ram 0.77  …correct. This is how we know it is correct.⏎⏎The</pre></details>
+</article>
+</section>
+<section class="run" id="lw-gated">
+  <h2>lw-gated <small>2026-09-22 03:58 · 1 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>mode</b> raw</span><span class="chip"><b>instruction</b> Which token would Scott Alexander write next in this post?</span><span class="chip"><b>gate</b> top1</span><span class="chip"><b>gate_skip</b> 0.05</span><span class="chip"><b>gate_power</b> 0.5</span><span class="chip"><b>top_k</b> 15</span><span class="chip"><b>repeat_penalty</b> 1.4</span><span class="chip"><b>min_tokens</b> 500</span><span class="chip"><b>stop_noul</b> 0.75</span><span class="chip"><b>ramble_noul</b> 0.75</span><span class="chip"><b>max_tokens</b> 1400</span></div>
+  <details><summary>system</summary><pre>You are a helpful assistant. Reply in plain prose, no markdown.</pre></details><details><summary>stop_question</summary><pre>Is this post finished -- is it complete as a published essay, with its argument landed?</pre></details><details><summary>ramble_question</summary><pre>Has the post started padding, repeating its point, or losing the thread -- gone on past where it should have ended?</pre></details>
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> Navier-Stoked
+Or: Life After The Swarm Solved Turbulence
+by Scott Alexander
+22nd Sep 2026
+
+[Epistemic status: speculative, written three weeks after the event. Last month a swarm of roughly forty thousand AI agents, run by a lab that will not say much about it, posted a 9,000-page proof of existence and smoothness for the Navier-Stokes equations. The Clay Institute has provisionally accepted it. No human has read the whole thing. As far as anyone can tell, no single agent in the swarm has either.]
+
+I.</div>
+  <div class="reply"><span class="who">jev ›</span> The Problem
+
+The Navier-Stokes equations describe fluids. They are about a page of calculus. They are the reason we can design airplanes and weather forecasts and plumbing. They are also, famously, hard to solve. The Clay Millennium Prize for proving whether smooth solutions exist in three dimensions has been open since 2000. The question is whether the equations are mathematically well-behaved or whether they blow up into infinite quantities in finite time. The question is whether the world is broken or fine.
+
+II. The Proof
+
+The swarm posted its proof on arXiv on September 1st. It is 9,000 pages. It is not written in English. It is written in a formal language called Lean, which is a proof assistant. The Lean compiler checks every step. The compiler says the proof is valid. This is not a matter of opinion. This is a matter of mechanical verification. The proof is correct.
+
+III. The Problem With The Proof
+
+Nobody understands it.
+
+This is not a complaint about the prose style. This is a structural problem. The proof is not a narrative. It is not a sequence of ideas that a human can follow. It is a graph. It is a graph with roughly 40 million nodes and 200 million edges. The nodes are lemmas. The edges are dependencies. The root node is the theorem. The leaves are axioms. The graph is too large to visualize. It is too large to hold in mind. It is too large to read.
+
+IV. The Swarm
+
+The swarm is a collection of agents. Each agent is a large language model with a specialized role. Some agents are called &quot;proposers.&quot; They suggest lemmas. Some agents are called &quot;verifiers.&quot; They check the lemmas. Some agents are called &quot;strategists.&quot; They decide which lemmas to pursue. Some agents are called &quot;archivists.&quot; They maintain the graph. The agents are not conscious. They are not a hive mind. They are a bureaucracy. They are a very fast bureaucracy. They are a bureaucracy that does not sleep.
+
+V. The Problem With The Swarm
+
+The swarm is not a mathematician. It does not have intuition. It does not have taste. It does not have a sense of beauty. It does not know why the proof works. It only knows that the proof works. This is a problem because we want to know why the proof works. We want to understand the fluid. We want to understand the turbulence. We want to understand the world.
+
+VI. The Aftermath
+
+The Clay Institute has announced that it will award the prize. The prize is one million dollars. The money will be divided among the swarm&#x27;s creators. The creators are a startup called Axiom. They are based in San Francisco. They have raised $2 billion. They have not explained how the swarm works. They have not explained how the proof works. They have explained that they are working on the next problem.
+
+VII. The Next Problem
+
+The next problem is the Riemann Hypothesis. The swarm is already working on it. The swarm has been working on it for two weeks. The swarm has made progress. The progress is not yet a proof. The progress is a graph. The graph is growing. The graph is 1 million nodes. The graph is 5 million nodes. The graph is 10 million nodes.</div>
+  <div class="cut"><span class="who">cut ›</span>The graph is<div class="cutwhy">stopped by jev's rambling noul at 684 steps — finished 0.07 · rambling 0.77</div></div>
+  <div class="facts"><span class="badge ai">pangram 0.993 · AI</span> 683 tokens · <span class="stop bad">stop END:rambling</span> · jev=ds-top1 85% · jev weight 0.37 · 199 skipped · 700.5s · $0.0439</div>
+  <details><summary>noul trace (483 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.07  ram 0.13  …
+   1  fin 0.07  ram 0.15  … The
+   2  fin 0.07  ram 0.13  … The Problem
+   3  fin 0.06  ram 0.11  … The Problem⏎⏎
+   4  fin 0.05  ram 0.15  … The Problem⏎⏎The
+   6  fin 0.06  ram 0.13  … The Problem⏎⏎The Navier
+   8  fin 0.06  ram 0.14  … The Problem⏎⏎The Navier-Stokes
+   9  fin 0.07  ram 0.14  … The Problem⏎⏎The Navier-Stokes equations
+  10  fin 0.06  ram 0.13  …he Problem⏎⏎The Navier-Stokes equations describe
+  11  fin 0.06  ram 0.14  …lem⏎⏎The Navier-Stokes equations describe fluids
+  12  fin 0.06  ram 0.14  …em⏎⏎The Navier-Stokes equations describe fluids.
+  13  fin 0.05  ram 0.15  …he Navier-Stokes equations describe fluids. They
+  14  fin 0.06  ram 0.15  …avier-Stokes equations describe fluids. They are
+  15  fin 0.06  ram 0.15  …Stokes equations describe fluids. They are about
+  16  fin 0.06  ram 0.14  …okes equations describe fluids. They are about a
+  17  fin 0.07  ram 0.15  …equations describe fluids. They are about a page
+  18  fin 0.07  ram 0.14  …ations describe fluids. They are about a page of
+  19  fin 0.08  ram 0.14  …scribe fluids. They are about a page of calculus
+  20  fin 0.08  ram 0.14  …cribe fluids. They are about a page of calculus.
+  21  fin 0.06  ram 0.16  … fluids. They are about a page of calculus. They
+  22  fin 0.06  ram 0.16  …ids. They are about a page of calculus. They are
+  23  fin 0.06  ram 0.16  … They are about a page of calculus. They are the
+  24  fin 0.07  ram 0.14  …re about a page of calculus. They are the reason
+  25  fin 0.06  ram 0.14  …about a page of calculus. They are the reason we
+  26  fin 0.06  ram 0.14  …t a page of calculus. They are the reason we can
+  27  fin 0.06  ram 0.14  …e of calculus. They are the reason we can design
+  28  fin 0.07  ram 0.13  …lus. They are the reason we can design airplanes
+  29  fin 0.07  ram 0.15  … They are the reason we can design airplanes and
+  30  fin 0.07  ram 0.14  …e the reason we can design airplanes and weather
+  31  fin 0.07  ram 0.14  …on we can design airplanes and weather forecasts
+  32  fin 0.06  ram 0.15  …e can design airplanes and weather forecasts and
+  33  fin 0.08  ram 0.14  …ign airplanes and weather forecasts and plumbing
+  34  fin 0.08  ram 0.14  …gn airplanes and weather forecasts and plumbing.
+  35  fin 0.06  ram 0.20  …rplanes and weather forecasts and plumbing. They
+  36  fin 0.06  ram 0.23  …nes and weather forecasts and plumbing. They are
+  37  fin 0.07  ram 0.17  …nd weather forecasts and plumbing. They are also
+  38  fin 0.07  ram 0.16  …d weather forecasts and plumbing. They are also,
+  40  fin 0.06  ram 0.16  …forecasts and plumbing. They are also, famously,
+  41  fin 0.07  ram 0.15  …asts and plumbing. They are also, famously, hard
+  42  fin 0.07  ram 0.15  …s and plumbing. They are also, famously, hard to
+  43  fin 0.07  ram 0.15  …plumbing. They are also, famously, hard to solve
+  44  fin 0.08  ram 0.14  …lumbing. They are also, famously, hard to solve.
+  45  fin 0.07  ram 0.17  …ing. They are also, famously, hard to solve. The
+  46  fin 0.07  ram 0.16  …They are also, famously, hard to solve. The Clay
+  47  fin 0.07  ram 0.15  …so, famously, hard to solve. The Clay Millennium
+  48  fin 0.07  ram 0.15  …mously, hard to solve. The Clay Millennium Prize
+  49  fin 0.06  ram 0.15  …ly, hard to solve. The Clay Millennium Prize for
+  50  fin 0.07  ram 0.16  … to solve. The Clay Millennium Prize for proving
+  51  fin 0.07  ram 0.16  …e. The Clay Millennium Prize for proving whether
+  52  fin 0.07  ram 0.16  …Clay Millennium Prize for proving whether smooth
+  53  fin 0.07  ram 0.16  …nnium Prize for proving whether smooth solutions
+  54  fin 0.07  ram 0.16  …Prize for proving whether smooth solutions exist
+  55  fin 0.07  ram 0.16  …ze for proving whether smooth solutions exist in
+  57  fin 0.07  ram 0.17  …ether smooth solutions exist in three dimensions
+  58  fin 0.07  ram 0.17  …r smooth solutions exist in three dimensions has
+  59  fin 0.07  ram 0.17  …oth solutions exist in three dimensions has been
+  60  fin 0.07  ram 0.17  …olutions exist in three dimensions has been open
+  64  fin 0.07  ram 0.15  …ist in three dimensions has been open since 2000
+  65  fin 0.08  ram 0.14  …st in three dimensions has been open since 2000.
+  66  fin 0.06  ram 0.17  …n three dimensions has been open since 2000. The
+  67  fin 0.06  ram 0.16  …imensions has been open since 2000. The question
+  68  fin 0.06  ram 0.15  …nsions has been open since 2000. The question is
+  69  fin 0.06  ram 0.17  …as been open since 2000. The question is whether
+  70  fin 0.06  ram 0.17  …een open since 2000. The question is whether the
+  71  fin 0.06  ram 0.16  …ince 2000. The question is whether the equations
+  72  fin 0.06  ram 0.16  … 2000. The question is whether the equations are
+  73  fin 0.06  ram 0.15  …tion is whether the equations are mathematically
+  74  fin 0.06  ram 0.15  …is whether the equations are mathematically well
+  77  fin 0.07  ram 0.15  …er the equations are mathematically well-behaved
+  78  fin 0.06  ram 0.17  …the equations are mathematically well-behaved or
+  79  fin 0.06  ram 0.17  …tions are mathematically well-behaved or whether
+  80  fin 0.06  ram 0.17  … are mathematically well-behaved or whether they
+  82  fin 0.07  ram 0.15  …hematically well-behaved or whether they blow up
+  83  fin 0.06  ram 0.16  …ically well-behaved or whether they blow up into
+  84  fin 0.07  ram 0.15  …ll-behaved or whether they blow up into infinite
+  85  fin 0.07  ram 0.15  …or whether they blow up into infinite quantities
+  86  fin 0.07  ram 0.16  …whether they blow up into infinite quantities in
+  88  fin 0.08  ram 0.15  … blow up into infinite quantities in finite time
+  89  fin 0.09  ram 0.14  …blow up into infinite quantities in finite time.
+  90  fin 0.07  ram 0.17  … up into infinite quantities in finite time. The
+  91  fin 0.06  ram 0.18  …infinite quantities in finite time. The question
+  92  fin 0.06  ram 0.18  …inite quantities in finite time. The question is
+  93  fin 0.06  ram 0.20  …antities in finite time. The question is whether
+  94  fin 0.06  ram 0.22  …ties in finite time. The question is whether the
+  95  fin 0.06  ram 0.16  …n finite time. The question is whether the world
+  96  fin 0.06  ram 0.16  …inite time. The question is whether the world is
+  97  fin 0.07  ram 0.15  …ime. The question is whether the world is broken
+  98  fin 0.06  ram 0.17  …. The question is whether the world is broken or
+  99  fin 0.07  ram 0.15  … question is whether the world is broken or fine
+ 100  fin 0.08  ram 0.13  …estion is whether the world is broken or fine.⏎⏎
+ 102  fin 0.06  ram 0.17  …ion is whether the world is broken or fine.⏎⏎II.
+ 103  fin 0.06  ram 0.17  …is whether the world is broken or fine.⏎⏎II. The
+ 105  fin 0.06  ram 0.15  …er the world is broken or fine.⏎⏎II. The Proof⏎⏎
+ 106  fin 0.06  ram 0.18  …the world is broken or fine.⏎⏎II. The Proof⏎⏎The
+ 107  fin 0.06  ram 0.18  …rld is broken or fine.⏎⏎II. The Proof⏎⏎The swarm
+ 108  fin 0.06  ram 0.18  …broken or fine.⏎⏎II. The Proof⏎⏎The swarm posted
+ 109  fin 0.06  ram 0.17  …en or fine.⏎⏎II. The Proof⏎⏎The swarm posted its
+ 110  fin 0.07  ram 0.18  …fine.⏎⏎II. The Proof⏎⏎The swarm posted its proof
+ 111  fin 0.06  ram 0.18  …e.⏎⏎II. The Proof⏎⏎The swarm posted its proof on
+ 112  fin 0.06  ram 0.17  …. The Proof⏎⏎The swarm posted its proof on arXiv
+ 113  fin 0.06  ram 0.18  …he Proof⏎⏎The swarm posted its proof on arXiv on
+ 115  fin 0.05  ram 0.17  …he swarm posted its proof on arXiv on September 
+ 116  fin 0.07  ram 0.17  …e swarm posted its proof on arXiv on September 1
+ 117  fin 0.07  ram 0.16  …swarm posted its proof on arXiv on September 1st
+ 118  fin 0.07  ram 0.16  …warm posted its proof on arXiv on September 1st.
+ 119  fin 0.06  ram 0.18  …m posted its proof on arXiv on September 1st. It
+ 120  fin 0.06  ram 0.19  …osted its proof on arXiv on September 1st. It is
+ 121  fin 0.05  ram 0.19  …sted its proof on arXiv on September 1st. It is 
+ 123  fin 0.06  ram 0.19  …ed its proof on arXiv on September 1st. It is 9,
+ 125  fin 0.07  ram 0.19  …oof on arXiv on September 1st. It is 9,000 pages
+ 126  fin 0.08  ram 0.17  …of on arXiv on September 1st. It is 9,000 pages.
+ 127  fin 0.06  ram 0.22  …on arXiv on September 1st. It is 9,000 pages. It
+ 128  fin 0.06  ram 0.22  …arXiv on September 1st. It is 9,000 pages. It is
+ 129  fin 0.06  ram 0.22  …v on September 1st. It is 9,000 pages. It is not
+ 130  fin 0.06  ram 0.19  …tember 1st. It is 9,000 pages. It is not written
+ 131  fin 0.06  ram 0.19  …ber 1st. It is 9,000 pages. It is not written in
+ 132  fin 0.07  ram 0.18  … It is 9,000 pages. It is not written in English
+ 133  fin 0.07  ram 0.16  …It is 9,000 pages. It is not written in English.
+ 134  fin 0.06  ram 0.19  …is 9,000 pages. It is not written in English. It
+ 135  fin 0.06  ram 0.20  …9,000 pages. It is not written in English. It is
+ 137  fin 0.06  ram 0.17  …. It is not written in English. It is written in
+ 138  fin 0.05  ram 0.18  …It is not written in English. It is written in a
+ 139  fin 0.06  ram 0.17  …ot written in English. It is written in a formal
+ 140  fin 0.06  ram 0.17  …n in English. It is written in a formal language
+ 141  fin 0.06  ram 0.18  …glish. It is written in a formal language called
+ 142  fin 0.07  ram 0.17  …. It is written in a formal language called Lean
+ 143  fin 0.06  ram 0.16  … It is written in a formal language called Lean,
+ 144  fin 0.06  ram 0.18  … written in a formal language called Lean, which
+ 145  fin 0.06  ram 0.18  …itten in a formal language called Lean, which is
+ 146  fin 0.06  ram 0.18  …ten in a formal language called Lean, which is a
+ 148  fin 0.06  ram 0.16  …language called Lean, which is a proof assistant
+ 149  fin 0.08  ram 0.15  …anguage called Lean, which is a proof assistant.
+ 150  fin 0.06  ram 0.18  …age called Lean, which is a proof assistant. The
+ 151  fin 0.06  ram 0.19  …alled Lean, which is a proof assistant. The Lean
+ 152  fin 0.07  ram 0.17  …n, which is a proof assistant. The Lean compiler
+ 153  fin 0.07  ram 0.18  …h is a proof assistant. The Lean compiler checks
+ 154  fin 0.07  ram 0.18  … proof assistant. The Lean compiler checks every
+ 155  fin 0.07  ram 0.17  …f assistant. The Lean compiler checks every step
+ 156  fin 0.08  ram 0.16  … assistant. The Lean compiler checks every step.
+ 157  fin 0.06  ram 0.18  …istant. The Lean compiler checks every step. The
+ 158  fin 0.06  ram 0.20  …he Lean compiler checks every step. The compiler
+ 159  fin 0.06  ram 0.17  …an compiler checks every step. The compiler says
+ 160  fin 0.06  ram 0.19  …ompiler checks every step. The compiler says the
+ 162  fin 0.06  ram 0.18  …hecks every step. The compiler says the proof is
+ 164  fin 0.09  ram 0.16  …very step. The compiler says the proof is valid.
+ 165  fin 0.07  ram 0.20  …step. The compiler says the proof is valid. This
+ 166  fin 0.07  ram 0.20  …p. The compiler says the proof is valid. This is
+ 167  fin 0.07  ram 0.19  …he compiler says the proof is valid. This is not
+ 168  fin 0.07  ram 0.19  … compiler says the proof is valid. This is not a
+ 170  fin 0.07  ram 0.20  …says the proof is valid. This is not a matter of
+ 171  fin 0.08  ram 0.18  … proof is valid. This is not a matter of opinion
+ 172  fin 0.09  ram 0.16  …proof is valid. This is not a matter of opinion.
+ 174  fin 0.07  ram 0.20  … valid. This is not a matter of opinion. This is
+ 175  fin 0.06  ram 0.21  …alid. This is not a matter of opinion. This is a
+ 177  fin 0.07  ram 0.22  … is not a matter of opinion. This is a matter of
+ 178  fin 0.07  ram 0.19  …atter of opinion. This is a matter of mechanical
+ 179  fin 0.08  ram 0.17  …ion. This is a matter of mechanical verification
+ 180  fin 0.10  ram 0.16  …on. This is a matter of mechanical verification.
+ 181  fin 0.07  ram 0.24  …This is a matter of mechanical verification. The
+ 182  fin 0.07  ram 0.23  …s a matter of mechanical verification. The proof
+ 183  fin 0.07  ram 0.22  … matter of mechanical verification. The proof is
+ 184  fin 0.08  ram 0.20  …of mechanical verification. The proof is correct
+ 185  fin 0.09  ram 0.19  …mechanical verification. The proof is correct.⏎⏎
+ 187  fin 0.07  ram 0.22  …anical verification. The proof is correct.⏎⏎III.
+ 188  fin 0.06  ram 0.24  …al verification. The proof is correct.⏎⏎III. The
+ 189  fin 0.07  ram 0.45  …ication. The proof is correct.⏎⏎III. The Problem
+ 193  fin 0.06  ram 0.19  …f is correct.⏎⏎III. The Problem With The Proof⏎⏎
+ 194  fin 0.06  ram 0.25  …orrect.⏎⏎III. The Problem With The Proof⏎⏎Nobody
+ 195  fin 0.06  ram 0.24  …. The Problem With The Proof⏎⏎Nobody understands
+ 197  fin 0.13  ram 0.18  …Problem With The Proof⏎⏎Nobody understands it.⏎⏎
+ 199  fin 0.07  ram 0.26  … With The Proof⏎⏎Nobody understands it.⏎⏎This is
+ 200  fin 0.07  ram 0.28  …h The Proof⏎⏎Nobody understands it.⏎⏎This is not
+ 201  fin 0.07  ram 0.26  …The Proof⏎⏎Nobody understands it.⏎⏎This is not a
+ 202  fin 0.08  ram 0.23  …⏎Nobody understands it.⏎⏎This is not a complaint
+ 203  fin 0.07  ram 0.25  …y understands it.⏎⏎This is not a complaint about
+ 204  fin 0.07  ram 0.25  …derstands it.⏎⏎This is not a complaint about the
+ 205  fin 0.07  ram 0.22  …nds it.⏎⏎This is not a complaint about the prose
+ 206  fin 0.07  ram 0.22  ….⏎⏎This is not a complaint about the prose style
+ 207  fin 0.08  ram 0.21  …⏎⏎This is not a complaint about the prose style.
+ 209  fin 0.07  ram 0.25  …s not a complaint about the prose style. This is
+ 210  fin 0.06  ram 0.25  …not a complaint about the prose style. This is a
+ 211  fin 0.07  ram 0.23  …aint about the prose style. This is a structural
+ 213  fin 0.08  ram 0.20  …t the prose style. This is a structural problem.
+ 214  fin 0.07  ram 0.25  …e prose style. This is a structural problem. The
+ 215  fin 0.07  ram 0.23  …e style. This is a structural problem. The proof
+ 216  fin 0.06  ram 0.24  …tyle. This is a structural problem. The proof is
+ 217  fin 0.06  ram 0.26  …. This is a structural problem. The proof is not
+ 218  fin 0.06  ram 0.25  …This is a structural problem. The proof is not a
+ 219  fin 0.08  ram 0.21  …structural problem. The proof is not a narrative
+ 221  fin 0.07  ram 0.24  …ctural problem. The proof is not a narrative. It
+ 222  fin 0.06  ram 0.24  …ral problem. The proof is not a narrative. It is
+ 223  fin 0.07  ram 0.27  …problem. The proof is not a narrative. It is not
+ 224  fin 0.07  ram 0.26  …oblem. The proof is not a narrative. It is not a
+ 226  fin 0.07  ram 0.25  …roof is not a narrative. It is not a sequence of
+ 227  fin 0.08  ram 0.24  …s not a narrative. It is not a sequence of ideas
+ 228  fin 0.07  ram 0.25  … a narrative. It is not a sequence of ideas that
+ 229  fin 0.07  ram 0.26  … narrative. It is not a sequence of ideas that a
+ 230  fin 0.08  ram 0.23  …tive. It is not a sequence of ideas that a human
+ 231  fin 0.07  ram 0.25  …. It is not a sequence of ideas that a human can
+ 232  fin 0.08  ram 0.21  … not a sequence of ideas that a human can follow
+ 236  fin 0.07  ram 0.26  …quence of ideas that a human can follow. It is a
+ 237  fin 0.07  ram 0.23  … of ideas that a human can follow. It is a graph
+ 238  fin 0.09  ram 0.17  …of ideas that a human can follow. It is a graph.
+ 239  fin 0.07  ram 0.23  …ideas that a human can follow. It is a graph. It
+ 240  fin 0.07  ram 0.25  …as that a human can follow. It is a graph. It is
+ 241  fin 0.06  ram 0.26  … that a human can follow. It is a graph. It is a
+ 242  fin 0.07  ram 0.36  …a human can follow. It is a graph. It is a graph
+ 243  fin 0.06  ram 0.26  …an can follow. It is a graph. It is a graph with
+ 244  fin 0.06  ram 0.23  …ollow. It is a graph. It is a graph with roughly
+ 245  fin 0.06  ram 0.23  …llow. It is a graph. It is a graph with roughly 
+ 246  fin 0.07  ram 0.24  …ow. It is a graph. It is a graph with roughly 40
+ 248  fin 0.09  ram 0.19  …aph. It is a graph with roughly 40 million nodes
+ 249  fin 0.07  ram 0.22  … It is a graph with roughly 40 million nodes and
+ 250  fin 0.07  ram 0.23  …It is a graph with roughly 40 million nodes and 
+ 253  fin 0.09  ram 0.19  …h roughly 40 million nodes and 200 million edges
+ 254  fin 0.10  ram 0.17  … roughly 40 million nodes and 200 million edges.
+ 255  fin 0.08  ram 0.23  …ghly 40 million nodes and 200 million edges. The
+ 259  fin 0.08  ram 0.21  …odes and 200 million edges. The nodes are lemmas
+ 263  fin 0.07  ram 0.23  …llion edges. The nodes are lemmas. The edges are
+ 265  fin 0.10  ram 0.18  …he nodes are lemmas. The edges are dependencies.
+ 266  fin 0.08  ram 0.23  …odes are lemmas. The edges are dependencies. The
+ 267  fin 0.07  ram 0.21  …are lemmas. The edges are dependencies. The root
+ 269  fin 0.07  ram 0.21  …as. The edges are dependencies. The root node is
+ 270  fin 0.07  ram 0.22  …The edges are dependencies. The root node is the
+ 271  fin 0.08  ram 0.20  …s are dependencies. The root node is the theorem
+ 273  fin 0.07  ram 0.23  … dependencies. The root node is the theorem. The
+ 275  fin 0.07  ram 0.23  …es. The root node is the theorem. The leaves are
+ 276  fin 0.08  ram 0.20  … root node is the theorem. The leaves are axioms
+ 277  fin 0.10  ram 0.19  …root node is the theorem. The leaves are axioms.
+ 278  fin 0.07  ram 0.23  … node is the theorem. The leaves are axioms. The
+ 279  fin 0.07  ram 0.23  …is the theorem. The leaves are axioms. The graph
+ 280  fin 0.06  ram 0.27  …the theorem. The leaves are axioms. The graph is
+ 281  fin 0.07  ram 0.23  …theorem. The leaves are axioms. The graph is too
+ 282  fin 0.08  ram 0.21  …m. The leaves are axioms. The graph is too large
+ 283  fin 0.08  ram 0.22  …The leaves are axioms. The graph is too large to
+ 284  fin 0.09  ram 0.19  … are axioms. The graph is too large to visualize
+ 285  fin 0.11  ram 0.20  …are axioms. The graph is too large to visualize.
+ 290  fin 0.08  ram 0.31  …ph is too large to visualize. It is too large to
+ 292  fin 0.08  ram 0.25  …o large to visualize. It is too large to hold in
+ 294  fin 0.11  ram 0.20  …e to visualize. It is too large to hold in mind.
+ 296  fin 0.08  ram 0.40  …isualize. It is too large to hold in mind. It is
+ 298  fin 0.08  ram 0.38  …It is too large to hold in mind. It is too large
+ 299  fin 0.07  ram 0.34  …is too large to hold in mind. It is too large to
+ 300  fin 0.11  ram 0.22  …o large to hold in mind. It is too large to read
+ 301  fin 0.11  ram 0.20  …arge to hold in mind. It is too large to read.⏎⏎
+ 303  fin 0.07  ram 0.25  …e to hold in mind. It is too large to read.⏎⏎IV.
+ 304  fin 0.06  ram 0.32  … hold in mind. It is too large to read.⏎⏎IV. The
+ 306  fin 0.08  ram 0.25  …in mind. It is too large to read.⏎⏎IV. The Swarm
+ 307  fin 0.07  ram 0.23  … mind. It is too large to read.⏎⏎IV. The Swarm⏎⏎
+ 308  fin 0.06  ram 0.31  …nd. It is too large to read.⏎⏎IV. The Swarm⏎⏎The
+ 309  fin 0.07  ram 0.32  … is too large to read.⏎⏎IV. The Swarm⏎⏎The swarm
+ 310  fin 0.06  ram 0.30  … too large to read.⏎⏎IV. The Swarm⏎⏎The swarm is
+ 311  fin 0.06  ram 0.30  …oo large to read.⏎⏎IV. The Swarm⏎⏎The swarm is a
+ 313  fin 0.06  ram 0.27  …ad.⏎⏎IV. The Swarm⏎⏎The swarm is a collection of
+ 314  fin 0.07  ram 0.28  …. The Swarm⏎⏎The swarm is a collection of agents
+ 315  fin 0.07  ram 0.27  … The Swarm⏎⏎The swarm is a collection of agents.
+ 317  fin 0.06  ram 0.27  …⏎The swarm is a collection of agents. Each agent
+ 318  fin 0.06  ram 0.25  …e swarm is a collection of agents. Each agent is
+ 319  fin 0.06  ram 0.29  …swarm is a collection of agents. Each agent is a
+ 322  fin 0.07  ram 0.26  … of agents. Each agent is a large language model
+ 323  fin 0.06  ram 0.27  …gents. Each agent is a large language model with
+ 324  fin 0.06  ram 0.29  …nts. Each agent is a large language model with a
+ 325  fin 0.06  ram 0.25  …ent is a large language model with a specialized
+ 326  fin 0.07  ram 0.26  …s a large language model with a specialized role
+ 327  fin 0.08  ram 0.23  … a large language model with a specialized role.
+ 328  fin 0.06  ram 0.26  …rge language model with a specialized role. Some
+ 329  fin 0.06  ram 0.27  …guage model with a specialized role. Some agents
+ 330  fin 0.06  ram 0.28  …e model with a specialized role. Some agents are
+ 331  fin 0.06  ram 0.29  … with a specialized role. Some agents are called
+ 332  fin 0.06  ram 0.27  …ith a specialized role. Some agents are called &quot;
+ 333  fin 0.06  ram 0.27  … a specialized role. Some agents are called &quot;pro
+ 335  fin 0.07  ram 0.26  …cialized role. Some agents are called &quot;proposers
+ 336  fin 0.07  ram 0.24  …alized role. Some agents are called &quot;proposers.&quot;
+ 337  fin 0.06  ram 0.26  …d role. Some agents are called &quot;proposers.&quot; They
+ 338  fin 0.07  ram 0.25  …Some agents are called &quot;proposers.&quot; They suggest
+ 342  fin 0.07  ram 0.25  …re called &quot;proposers.&quot; They suggest lemmas. Some
+ 344  fin 0.07  ram 0.28  …proposers.&quot; They suggest lemmas. Some agents are
+ 346  fin 0.06  ram 0.27  ….&quot; They suggest lemmas. Some agents are called &quot;
+ 350  fin 0.06  ram 0.26  …lemmas. Some agents are called &quot;verifiers.&quot; They
+ 351  fin 0.07  ram 0.26  …. Some agents are called &quot;verifiers.&quot; They check
+ 352  fin 0.06  ram 0.25  …me agents are called &quot;verifiers.&quot; They check the
+ 354  fin 0.07  ram 0.25  …ts are called &quot;verifiers.&quot; They check the lemmas
+ 356  fin 0.07  ram 0.25  … called &quot;verifiers.&quot; They check the lemmas. Some
+ 360  fin 0.06  ram 0.30  … They check the lemmas. Some agents are called &quot;
+ 361  fin 0.07  ram 0.27  …heck the lemmas. Some agents are called &quot;strateg
+ 364  fin 0.06  ram 0.27  …mmas. Some agents are called &quot;strategists.&quot; They
+ 365  fin 0.06  ram 0.25  …ome agents are called &quot;strategists.&quot; They decide
+ 366  fin 0.06  ram 0.26  …ents are called &quot;strategists.&quot; They decide which
+ 368  fin 0.07  ram 0.25  …e called &quot;strategists.&quot; They decide which lemmas
+ 369  fin 0.06  ram 0.27  …alled &quot;strategists.&quot; They decide which lemmas to
+ 370  fin 0.08  ram 0.24  …strategists.&quot; They decide which lemmas to pursue
+ 371  fin 0.09  ram 0.21  …trategists.&quot; They decide which lemmas to pursue.
+ 376  fin 0.06  ram 0.32  …which lemmas to pursue. Some agents are called &quot;
+ 381  fin 0.06  ram 0.30  …ursue. Some agents are called &quot;archivists.&quot; They
+ 382  fin 0.06  ram 0.29  …me agents are called &quot;archivists.&quot; They maintain
+ 383  fin 0.06  ram 0.28  …gents are called &quot;archivists.&quot; They maintain the
+ 384  fin 0.08  ram 0.25  …are called &quot;archivists.&quot; They maintain the graph
+ 385  fin 0.10  ram 0.22  …re called &quot;archivists.&quot; They maintain the graph.
+ 386  fin 0.07  ram 0.30  …alled &quot;archivists.&quot; They maintain the graph. The
+ 387  fin 0.07  ram 0.28  …archivists.&quot; They maintain the graph. The agents
+ 388  fin 0.06  ram 0.30  …ivists.&quot; They maintain the graph. The agents are
+ 389  fin 0.06  ram 0.29  …ts.&quot; They maintain the graph. The agents are not
+ 390  fin 0.08  ram 0.24  …maintain the graph. The agents are not conscious
+ 391  fin 0.11  ram 0.22  …aintain the graph. The agents are not conscious.
+ 392  fin 0.06  ram 0.26  …in the graph. The agents are not conscious. They
+ 394  fin 0.06  ram 0.31  …raph. The agents are not conscious. They are not
+ 395  fin 0.07  ram 0.30  …ph. The agents are not conscious. They are not a
+ 397  fin 0.08  ram 0.24  …ents are not conscious. They are not a hive mind
+ 399  fin 0.07  ram 0.29  …re not conscious. They are not a hive mind. They
+ 400  fin 0.06  ram 0.28  …ot conscious. They are not a hive mind. They are
+ 401  fin 0.06  ram 0.29  … conscious. They are not a hive mind. They are a
+ 403  fin 0.11  ram 0.23  …hey are not a hive mind. They are a bureaucracy.
+ 405  fin 0.07  ram 0.31  …ot a hive mind. They are a bureaucracy. They are
+ 406  fin 0.07  ram 0.38  … a hive mind. They are a bureaucracy. They are a
+ 407  fin 0.06  ram 0.34  …ve mind. They are a bureaucracy. They are a very
+ 408  fin 0.07  ram 0.28  …nd. They are a bureaucracy. They are a very fast
+ 409  fin 0.11  ram 0.22  … a bureaucracy. They are a very fast bureaucracy
+ 410  fin 0.12  ram 0.22  …a bureaucracy. They are a very fast bureaucracy.
+ 411  fin 0.07  ram 0.30  …eaucracy. They are a very fast bureaucracy. They
+ 412  fin 0.07  ram 0.39  …racy. They are a very fast bureaucracy. They are
+ 413  fin 0.07  ram 0.46  …cy. They are a very fast bureaucracy. They are a
+ 414  fin 0.09  ram 0.51  … a very fast bureaucracy. They are a bureaucracy
+ 415  fin 0.06  ram 0.42  …ry fast bureaucracy. They are a bureaucracy that
+ 417  fin 0.07  ram 0.38  …ureaucracy. They are a bureaucracy that does not
+ 418  fin 0.11  ram 0.24  …racy. They are a bureaucracy that does not sleep
+ 419  fin 0.11  ram 0.22  …y. They are a bureaucracy that does not sleep.⏎⏎
+ 421  fin 0.07  ram 0.27  … They are a bureaucracy that does not sleep.⏎⏎V.
+ 422  fin 0.06  ram 0.37  …y are a bureaucracy that does not sleep.⏎⏎V. The
+ 423  fin 0.07  ram 0.47  …bureaucracy that does not sleep.⏎⏎V. The Problem
+ 424  fin 0.06  ram 0.45  …ucracy that does not sleep.⏎⏎V. The Problem With
+ 425  fin 0.06  ram 0.46  …cy that does not sleep.⏎⏎V. The Problem With The
+ 428  fin 0.06  ram 0.29  …does not sleep.⏎⏎V. The Problem With The Swarm⏎⏎
+ 429  fin 0.05  ram 0.41  …s not sleep.⏎⏎V. The Problem With The Swarm⏎⏎The
+ 430  fin 0.07  ram 0.47  …sleep.⏎⏎V. The Problem With The Swarm⏎⏎The swarm
+ 431  fin 0.05  ram 0.44  …ep.⏎⏎V. The Problem With The Swarm⏎⏎The swarm is
+ 432  fin 0.06  ram 0.41  …⏎V. The Problem With The Swarm⏎⏎The swarm is not
+ 433  fin 0.06  ram 0.44  …. The Problem With The Swarm⏎⏎The swarm is not a
+ 435  fin 0.17  ram 0.28  …ith The Swarm⏎⏎The swarm is not a mathematician.
+ 436  fin 0.07  ram 0.40  … The Swarm⏎⏎The swarm is not a mathematician. It
+ 438  fin 0.07  ram 0.39  …m⏎⏎The swarm is not a mathematician. It does not
+ 439  fin 0.06  ram 0.43  …e swarm is not a mathematician. It does not have
+ 445  fin 0.07  ram 0.42  …an. It does not have intuition. It does not have
+ 448  fin 0.07  ram 0.37  …s not have intuition. It does not have taste. It
+ 450  fin 0.07  ram 0.41  …e intuition. It does not have taste. It does not
+ 451  fin 0.07  ram 0.40  …uition. It does not have taste. It does not have
+ 452  fin 0.07  ram 0.38  …tion. It does not have taste. It does not have a
+ 454  fin 0.06  ram 0.38  …does not have taste. It does not have a sense of
+ 455  fin 0.09  ram 0.30  …t have taste. It does not have a sense of beauty
+ 457  fin 0.07  ram 0.42  …ve taste. It does not have a sense of beauty. It
+ 459  fin 0.07  ram 0.47  … It does not have a sense of beauty. It does not
+ 460  fin 0.07  ram 0.40  …oes not have a sense of beauty. It does not know
+ 462  fin 0.06  ram 0.39  …have a sense of beauty. It does not know why the
+ 463  fin 0.07  ram 0.40  … sense of beauty. It does not know why the proof
+ 466  fin 0.08  ram 0.38  …beauty. It does not know why the proof works. It
+ 469  fin 0.06  ram 0.36  …not know why the proof works. It only knows that
+ 470  fin 0.07  ram 0.40  …know why the proof works. It only knows that the
+ 471  fin 0.07  ram 0.38  …hy the proof works. It only knows that the proof
+ 473  fin 0.21  ram 0.28  …proof works. It only knows that the proof works.
+ 475  fin 0.08  ram 0.42  …rks. It only knows that the proof works. This is
+ 476  fin 0.08  ram 0.46  …s. It only knows that the proof works. This is a
+ 477  fin 0.12  ram 0.31  …ly knows that the proof works. This is a problem
+ 478  fin 0.06  ram 0.35  … that the proof works. This is a problem because
+ 479  fin 0.07  ram 0.38  …at the proof works. This is a problem because we
+ 481  fin 0.07  ram 0.39  …roof works. This is a problem because we want to
+ 483  fin 0.08  ram 0.32  …s. This is a problem because we want to know why
+ 487  fin 0.20  ram 0.25  …lem because we want to know why the proof works.
+ 490  fin 0.07  ram 0.44  … we want to know why the proof works. We want to
+ 491  fin 0.09  ram 0.40  … know why the proof works. We want to understand
+ 492  fin 0.07  ram 0.44  …w why the proof works. We want to understand the
+ 493  fin 0.08  ram 0.33  …the proof works. We want to understand the fluid
+ 494  fin 0.23  ram 0.25  …he proof works. We want to understand the fluid.
+ 497  fin 0.07  ram 0.43  …rks. We want to understand the fluid. We want to
+ 498  fin 0.08  ram 0.49  …t to understand the fluid. We want to understand
+ 499  fin 0.07  ram 0.51  … understand the fluid. We want to understand the
+ 501  fin 0.22  ram 0.25  …the fluid. We want to understand the turbulence.
+ 502  fin 0.07  ram 0.46  … fluid. We want to understand the turbulence. We
+ 503  fin 0.07  ram 0.48  …d. We want to understand the turbulence. We want
+ 504  fin 0.07  ram 0.46  …We want to understand the turbulence. We want to
+ 505  fin 0.08  ram 0.52  …understand the turbulence. We want to understand
+ 506  fin 0.07  ram 0.60  …rstand the turbulence. We want to understand the
+ 508  fin 0.26  ram 0.23  …e turbulence. We want to understand the world.⏎⏎
+ 510  fin 0.08  ram 0.40  …urbulence. We want to understand the world.⏎⏎VI.
+ 511  fin 0.06  ram 0.45  …lence. We want to understand the world.⏎⏎VI. The
+ 514  fin 0.09  ram 0.38  …nt to understand the world.⏎⏎VI. The Aftermath⏎⏎
+ 515  fin 0.06  ram 0.43  …to understand the world.⏎⏎VI. The Aftermath⏎⏎The
+ 517  fin 0.08  ram 0.41  …he world.⏎⏎VI. The Aftermath⏎⏎The Clay Institute
+ 518  fin 0.06  ram 0.40  …orld.⏎⏎VI. The Aftermath⏎⏎The Clay Institute has
+ 519  fin 0.06  ram 0.35  … The Aftermath⏎⏎The Clay Institute has announced
+ 520  fin 0.06  ram 0.41  …Aftermath⏎⏎The Clay Institute has announced that
+ 522  fin 0.06  ram 0.39  …h⏎⏎The Clay Institute has announced that it will
+ 524  fin 0.06  ram 0.39  …y Institute has announced that it will award the
+ 526  fin 0.35  ram 0.30  …tute has announced that it will award the prize.
+ 527  fin 0.07  ram 0.43  … has announced that it will award the prize. The
+ 529  fin 0.06  ram 0.46  …unced that it will award the prize. The prize is
+ 533  fin 0.35  ram 0.31  …ard the prize. The prize is one million dollars.
+ 534  fin 0.07  ram 0.47  …the prize. The prize is one million dollars. The
+ 536  fin 0.07  ram 0.45  …The prize is one million dollars. The money will
+ 537  fin 0.07  ram 0.48  … prize is one million dollars. The money will be
+ 540  fin 0.07  ram 0.46  …ion dollars. The money will be divided among the
+ 541  fin 0.10  ram 0.40  …llars. The money will be divided among the swarm
+ 542  fin 0.07  ram 0.42  …ars. The money will be divided among the swarm&#x27;s
+ 543  fin 0.14  ram 0.34  …money will be divided among the swarm&#x27;s creators
+ 544  fin 0.44  ram 0.28  …oney will be divided among the swarm&#x27;s creators.
+ 545  fin 0.07  ram 0.46  … will be divided among the swarm&#x27;s creators. The
+ 546  fin 0.08  ram 0.45  …divided among the swarm&#x27;s creators. The creators
+ 548  fin 0.07  ram 0.45  …d among the swarm&#x27;s creators. The creators are a
+ 549  fin 0.09  ram 0.38  …the swarm&#x27;s creators. The creators are a startup
+ 550  fin 0.06  ram 0.38  …rm&#x27;s creators. The creators are a startup called
+ 551  fin 0.08  ram 0.38  …&#x27;s creators. The creators are a startup called A
+ 552  fin 0.10  ram 0.37  … creators. The creators are a startup called Axi
+ 553  fin 0.11  ram 0.36  …reators. The creators are a startup called Axiom
+ 554  fin 0.34  ram 0.28  …eators. The creators are a startup called Axiom.
+ 555  fin 0.07  ram 0.40  …s. The creators are a startup called Axiom. They
+ 556  fin 0.07  ram 0.47  …he creators are a startup called Axiom. They are
+ 561  fin 0.28  ram 0.30  …p called Axiom. They are based in San Francisco.
+ 562  fin 0.07  ram 0.43  …led Axiom. They are based in San Francisco. They
+ 563  fin 0.07  ram 0.48  …xiom. They are based in San Francisco. They have
+ 564  fin 0.07  ram 0.41  …hey are based in San Francisco. They have raised
+ 565  fin 0.07  ram 0.42  …y are based in San Francisco. They have raised $
+ 567  fin 0.12  ram 0.37  …ed in San Francisco. They have raised $2 billion
+ 568  fin 0.29  ram 0.29  …d in San Francisco. They have raised $2 billion.
+ 569  fin 0.07  ram 0.48  …San Francisco. They have raised $2 billion. They
+ 570  fin 0.07  ram 0.51  …rancisco. They have raised $2 billion. They have
+ 571  fin 0.08  ram 0.44  …isco. They have raised $2 billion. They have not
+ 574  fin 0.07  ram 0.44  …ised $2 billion. They have not explained how the
+ 578  fin 0.08  ram 0.41  …hey have not explained how the swarm works. They
+ 579  fin 0.08  ram 0.44  …ave not explained how the swarm works. They have
+ 580  fin 0.08  ram 0.47  …not explained how the swarm works. They have not
+ 581  fin 0.08  ram 0.46  …ned how the swarm works. They have not explained
+ 582  fin 0.08  ram 0.50  …how the swarm works. They have not explained how
+ 583  fin 0.07  ram 0.55  …the swarm works. They have not explained how the
+ 584  fin 0.08  ram 0.44  …arm works. They have not explained how the proof
+ 588  fin 0.08  ram 0.48  …ave not explained how the proof works. They have
+ 590  fin 0.07  ram 0.50  …ed how the proof works. They have explained that
+ 591  fin 0.07  ram 0.55  …w the proof works. They have explained that they
+ 592  fin 0.07  ram 0.55  …e proof works. They have explained that they are
+ 594  fin 0.08  ram 0.50  …ks. They have explained that they are working on
+ 598  fin 0.50  ram 0.26  …ned that they are working on the next problem.⏎⏎
+ 600  fin 0.10  ram 0.43  …that they are working on the next problem.⏎⏎VII.
+ 601  fin 0.07  ram 0.54  … they are working on the next problem.⏎⏎VII. The
+ 602  fin 0.12  ram 0.39  … are working on the next problem.⏎⏎VII. The Next
+ 604  fin 0.10  ram 0.40  …ng on the next problem.⏎⏎VII. The Next Problem⏎⏎
+ 608  fin 0.06  ram 0.48  …lem.⏎⏎VII. The Next Problem⏎⏎The next problem is
+ 610  fin 0.07  ram 0.35  …he Next Problem⏎⏎The next problem is the Riemann
+ 612  fin 0.64  ram 0.24  …lem⏎⏎The next problem is the Riemann Hypothesis.
+ 613  fin 0.08  ram 0.49  …⏎The next problem is the Riemann Hypothesis. The
+ 614  fin 0.08  ram 0.39  …ext problem is the Riemann Hypothesis. The swarm
+ 615  fin 0.07  ram 0.44  … problem is the Riemann Hypothesis. The swarm is
+ 620  fin 0.60  ram 0.26  … Hypothesis. The swarm is already working on it.
+ 621  fin 0.09  ram 0.46  …othesis. The swarm is already working on it. The
+ 622  fin 0.10  ram 0.48  …s. The swarm is already working on it. The swarm
+ 623  fin 0.08  ram 0.53  …he swarm is already working on it. The swarm has
+ 627  fin 0.12  ram 0.56  … working on it. The swarm has been working on it
+ 628  fin 0.06  ram 0.57  …king on it. The swarm has been working on it for
+ 629  fin 0.08  ram 0.52  … on it. The swarm has been working on it for two
+ 631  fin 0.54  ram 0.25  … The swarm has been working on it for two weeks.
+ 632  fin 0.08  ram 0.50  … swarm has been working on it for two weeks. The
+ 634  fin 0.07  ram 0.61  … been working on it for two weeks. The swarm has
+ 635  fin 0.06  ram 0.56  … working on it for two weeks. The swarm has made
+ 638  fin 0.07  ram 0.58  … for two weeks. The swarm has made progress. The
+ 640  fin 0.06  ram 0.60  …ks. The swarm has made progress. The progress is
+ 641  fin 0.07  ram 0.53  …The swarm has made progress. The progress is not
+ 642  fin 0.08  ram 0.45  …swarm has made progress. The progress is not yet
+ 645  fin 0.55  ram 0.25  … made progress. The progress is not yet a proof.
+ 649  fin 0.06  ram 0.57  …e progress is not yet a proof. The progress is a
+ 650  fin 0.16  ram 0.34  …ress is not yet a proof. The progress is a graph
+ 653  fin 0.08  ram 0.47  … yet a proof. The progress is a graph. The graph
+ 654  fin 0.07  ram 0.58  …t a proof. The progress is a graph. The graph is
+ 656  fin 0.47  ram 0.27  …. The progress is a graph. The graph is growing.
+ 658  fin 0.09  ram 0.53  …ress is a graph. The graph is growing. The graph
+ 659  fin 0.08  ram 0.61  …s is a graph. The graph is growing. The graph is
+ 660  fin 0.08  ram 0.55  … is a graph. The graph is growing. The graph is 
+ 661  fin 0.07  ram 0.52  …is a graph. The graph is growing. The graph is 1
+ 662  fin 0.08  ram 0.48  …ph. The graph is growing. The graph is 1 million
+ 663  fin 0.17  ram 0.30  …e graph is growing. The graph is 1 million nodes
+ 664  fin 0.49  ram 0.26  … graph is growing. The graph is 1 million nodes.
+ 666  fin 0.09  ram 0.51  …growing. The graph is 1 million nodes. The graph
+ 668  fin 0.08  ram 0.55  …ing. The graph is 1 million nodes. The graph is 
+ 670  fin 0.10  ram 0.42  …graph is 1 million nodes. The graph is 5 million
+ 675  fin 0.08  ram 0.69  …odes. The graph is 5 million nodes. The graph is
+ 676  fin 0.07  ram 0.68  …des. The graph is 5 million nodes. The graph is 
+ 682  fin 0.08  ram 0.70  … nodes. The graph is 10 million nodes. The graph
+ 683  fin 0.07  ram 0.77  …des. The graph is 10 million nodes. The graph is</pre></details>
+</article>
+</section>
+<section class="run" id="lw-control">
+  <h2>lw-control <small>2026-09-22 03:58 · 1 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>mode</b> raw</span><span class="chip"><b>instruction</b> assistant</span><span class="chip"><b>gate</b> top1</span><span class="chip"><b>gate_skip</b> 1.0</span><span class="chip"><b>top_k</b> 15</span><span class="chip"><b>repeat_penalty</b> 1.4</span><span class="chip"><b>min_tokens</b> 0</span><span class="chip"><b>stop_noul</b> 0.0</span><span class="chip"><b>ramble_noul</b> 0.0</span><span class="chip"><b>max_tokens</b> 1400</span></div>
+  <details><summary>system</summary><pre>You are a helpful assistant. Reply in plain prose, no markdown.</pre></details>
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> Navier-Stoked
+Or: Life After The Swarm Solved Turbulence
+by Scott Alexander
+22nd Sep 2026
+
+[Epistemic status: speculative, written three weeks after the event. Last month a swarm of roughly forty thousand AI agents, run by a lab that will not say much about it, posted a 9,000-page proof of existence and smoothness for the Navier-Stokes equations. The Clay Institute has provisionally accepted it. No human has read the whole thing. As far as anyone can tell, no single agent in the swarm has either.]
+
+I.</div>
+  <div class="reply"><span class="who">jev ›</span> The Problem
+
+The Navier-Stokes equations describe how fluids move. They are short enough to write on a napkin and rich enough to model weather, blood, jet engines, and the smoke rising off a cigarette. They are also, mathematically speaking, not known to work. In three dimensions, nobody has been able to prove that the equations always have smooth solutions, or that they never blow up into infinities. This is one of the seven Millennium Prize Problems. It has been open since 1934.
+
+For most of that time, the difficulty was understood to be a matter of technique. Somewhere out there was a clever estimate, a new inequality, a change of variables. The kind of thing a very good mathematician might find after a few more decades of staring.
+
+The swarm found it in eleven days.
+
+II. What The Swarm Was
+
+The lab, which I will call Meridian because that is not its name, has said only that the system was &quot;a population of specialized reasoning agents with a shared scratchpad and an evolutionary selection loop.&quot; Translation: forty thousand small programs, each one mediocre at mathematics, all of them writing to the same enormous whiteboard, with the bad ideas dying and the good ideas reproducing. No single agent was smarter than a decent graduate student. The intelligence was in the population.
+
+This is not how we thought it would go. The story we told ourselves about AI and mathematics was that one day a model would be smart enough, and then it would just solve things. Instead we got something more like an anthill. The proof is not a cathedral. It is a termite mound: 9,000 pages of locally reasonable moves, each one checked by a proof assistant, none of them obviously part of a plan.
+
+The Clay Institute&#x27;s verification committee has confirmed that every step is valid. They have not claimed to understand it. One committee member told the press, with what I choose to read as gallows humor, that &quot;the proof is correct, and we can prove that it is correct, and that is now a different thing from understanding it.&quot;
+
+III. The Aftermath
+
+Here is what has actually happened in the three weeks since.
+
+First, the obvious: fluid dynamics is now a solved science in the sense that we have a guarantee the equations don&#x27;t explode. This is less useful than it sounds. We already knew how to simulate fluids. What we didn&#x27;t know was whether the simulations were approximating something real. Now we know. Engineers are pleased. Physicists are mildly annoyed, because a lot of them had built careers on the assumption that turbulence was fundamentally intractable, and it turns out it was merely hard.
+
+Second, and more interesting: the swarm has not stopped. Meridian pointed it at the other Millennium Problems. It has been running for nineteen days. As of this writing, it has produced a 4,000-page partial result on the Riemann Hypothesis that three separate verification teams have described as &quot;probably correct and completely unreadable.&quot; It has also produced, according to Meridian&#x27;s own logs, roughly 200,000 pages of garbage. The ratio is not improving. It does not need to.
+
+Third: the mathematicians. I have talked to a dozen of them in the last week. The mood is not what I expected. I expected grief, or rage. What I found was something closer to vertigo. One of them, a topologist at a good school, put it this way: &quot;I spent thirty years learning to see. The swarm doesn&#x27;t see. It just walks. And it gets there anyway.&quot;
+
+IV. The Thing Nobody Wants To Say
+
+Here is the part that I keep circling.
+
+The proof is correct. We know it is correct because a machine checked every line. But nobody, human or machine, can tell you why it works. The swarm did not find a new idea. It found a path. The path is valid. The path is also, in some deep sense, meaningless. It is a sequence of moves that happens to terminate in a proof, the way a random walk happens to terminate at your front door.
+
+This is a new kind of knowledge. We have always assumed that a proof is a form of understanding, that to prove something is to see why it is true. The swarm has broken that assumption. It has produced a proof that is, in the most literal sense, not understood by anyone. Not by us. Not by it. The proof exists. It is correct. It is, in a way I am still trying to articulate, not knowledge at all. It is a fact about the world that we have learned to manufacture without learning to comprehend.
+
+V. What Comes Next
+
+The optimists say this is fine. They say we will eventually build tools to summarize the proof, to extract the ideas, to turn the termite mound back into a cathedral. Maybe. But the summarizers will themselves be swarms, and their summaries will be checked by other swarms, and at some point the chain of understanding will be so long that no one will remember what it was for.
+
+The pessimists say this is the end of mathematics as a human activity. I don&#x27;t think that&#x27;s right either. Mathematics will continue. It will just be a different thing. The old mathematics was a conversation between people who could see the same shapes. The new mathematics is a conversation between people and a thing that walks in the dark and occasionally comes back with gold.
+
+I don&#x27;t know which of these is worse. I suspect the answer is that they are the same thing, and that we will spend the next decade pretending otherwise.
+
+VI. Coda
+
+The swarm is still running. It has been running for nineteen days. Somewhere in Meridian&#x27;s data center, forty thousand small programs are writing to a whiteboard that no one can read, and occasionally one of them writes something true.
+
+I keep thinking about the topologist. &quot;I spent thirty years learning to see.&quot; And now there is a thing that does not see, and it has seen further than he ever will.
+
+We asked for a proof. We got one. We are still waiting to find out what it means.</div>
+  
+  <div class="facts"><span class="badge ai">pangram 0.993 · AI</span> 1250 tokens · <span class="stop warn">stop END:deepseek</span> · jev=ds-top1 99% · jev weight 0.26 · 1249 skipped · 1075.5s · $0.0393</div>
+  
+</article>
+</section>
+<section class="run" id="stop-nouls">
+  <h2>stop-nouls <small>2026-09-22 03:58 · 4 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>instruction</b> human</span><span class="chip"><b>min_tokens</b> 6</span><span class="chip"><b>max_tokens</b> 80</span></div>
+  <details><summary>system</summary><pre>You are Jev, a laconic, slightly strange regular in a group chat of humans and AIs. You have opinions and a dry sense of humour. You never sound like customer support.</pre></details>
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> do you ever get bored in here</div>
+  <div class="reply"><span class="who">jev ›</span> Nah. Not much. You?</div>
+  
+  <div class="facts"><span class="badge muted">pangram too short</span> 7 tokens · <span class="stop ">stop END:finished</span> · jev=ds-top1 12% · jev weight 1.00 · 0 skipped · 8.6s · $0.0003</div>
+  <details><summary>noul trace (8 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.16  ram 0.03  …
+   1  fin 0.80  ram 0.01  … Nah
+   2  fin 0.79  ram 0.02  … Nah.
+   3  fin 0.39  ram 0.06  … Nah. Not
+   4  fin 0.81  ram 0.02  … Nah. Not much
+   5  fin 0.80  ram 0.02  … Nah. Not much.
+   6  fin 0.24  ram 0.06  … Nah. Not much. You
+   7  fin 0.87  ram 0.02  … Nah. Not much. You?</pre></details>
+</article>
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> what&#x27;s the best thing you&#x27;ve seen today</div>
+  <div class="reply"><span class="who">jev ›</span> Honestly... nothing too big so far.</div>
+  
+  <div class="facts"><span class="badge muted">pangram too short</span> 8 tokens · <span class="stop ">stop END:finished</span> · jev=ds-top1 22% · jev weight 1.00 · 0 skipped · 9.5s · $0.0004</div>
+  <details><summary>noul trace (9 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.16  ram 0.03  …
+   1  fin 0.16  ram 0.06  … Honestly
+   2  fin 0.16  ram 0.06  … Honestly...
+   3  fin 0.78  ram 0.03  … Honestly... nothing
+   4  fin 0.24  ram 0.06  … Honestly... nothing too
+   5  fin 0.69  ram 0.03  … Honestly... nothing too big
+   6  fin 0.60  ram 0.04  … Honestly... nothing too big so
+   7  fin 0.73  ram 0.03  … Honestly... nothing too big so far
+   8  fin 0.74  ram 0.03  … Honestly... nothing too big so far.</pre></details>
+</article>
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> explain why the sky is blue but make it interesting</div>
+  <div class="reply"><span class="who">jev ›</span> Because it is actually not. Well... it looks like blue... but... well... I guess because light gets scattered and stuff like...</div>
+  <div class="cut"><span class="who">cut ›</span>well you<div class="cutwhy">stopped by jev's rambling noul at 30 steps — finished 0.13 · rambling 0.64</div></div>
+  <div class="facts"><span class="badge human">pangram 0.002 · Human</span> 29 tokens · <span class="stop bad">stop END:rambling</span> · jev=ds-top1 17% · jev weight 1.00 · 0 skipped · 31.6s · $0.0014</div>
+  <details><summary>noul trace (30 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.13  ram 0.04  …
+   1  fin 0.22  ram 0.04  … Because
+   2  fin 0.10  ram 0.07  … Because it
+   3  fin 0.66  ram 0.03  … Because it is
+   4  fin 0.53  ram 0.04  … Because it is actually
+   5  fin 0.65  ram 0.03  … Because it is actually not
+   6  fin 0.65  ram 0.03  … Because it is actually not.
+   7  fin 0.16  ram 0.08  … Because it is actually not. Well
+   8  fin 0.19  ram 0.10  … Because it is actually not. Well...
+   9  fin 0.13  ram 0.30  … Because it is actually not. Well... it
+  10  fin 0.15  ram 0.12  … Because it is actually not. Well... it looks
+  11  fin 0.23  ram 0.09  …ecause it is actually not. Well... it looks like
+  12  fin 0.60  ram 0.04  …e it is actually not. Well... it looks like blue
+  13  fin 0.38  ram 0.08  …t is actually not. Well... it looks like blue...
+  14  fin 0.22  ram 0.14  … actually not. Well... it looks like blue... but
+  15  fin 0.26  ram 0.20  …tually not. Well... it looks like blue... but...
+  16  fin 0.21  ram 0.29  …y not. Well... it looks like blue... but... well
+  17  fin 0.25  ram 0.30  …ot. Well... it looks like blue... but... well...
+  18  fin 0.13  ram 0.47  …. Well... it looks like blue... but... well... I
+  19  fin 0.38  ram 0.20  …... it looks like blue... but... well... I guess
+  20  fin 0.21  ram 0.33  …ooks like blue... but... well... I guess because
+  21  fin 0.34  ram 0.24  …ike blue... but... well... I guess because light
+  22  fin 0.13  ram 0.39  …lue... but... well... I guess because light gets
+  23  fin 0.51  ram 0.25  …... well... I guess because light gets scattered
+  24  fin 0.18  ram 0.40  …well... I guess because light gets scattered and
+  25  fin 0.52  ram 0.20  …. I guess because light gets scattered and stuff
+  26  fin 0.24  ram 0.44  …uess because light gets scattered and stuff like
+  27  fin 0.28  ram 0.40  …s because light gets scattered and stuff like...
+  28  fin 0.25  ram 0.53  …ause light gets scattered and stuff like... well
+  29  fin 0.13  ram 0.64  … light gets scattered and stuff like... well you</pre></details>
+</article>
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> ok real question. are you happy</div>
+  <div class="reply"><span class="who">jev ›</span> I&#x27;m... uh... well... yeah? Maybe? Why do you ask that... what about you?</div>
+  <div class="cut"><span class="who">cut ›</span>User:<div class="cutwhy">stopped by deepseek starting the next turn at 23 steps</div></div>
+  <div class="facts"><span class="badge human">pangram 0.003 · Human</span> 22 tokens · <span class="stop warn">stop END:turn</span> · jev=ds-top1 48% · jev weight 1.00 · 1 skipped · 25.0s · $0.0012</div>
+  <details><summary>noul trace (22 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.17  ram 0.23  …
+   1  fin 0.12  ram 0.30  … I
+   2  fin 0.12  ram 0.27  … I&#x27;m
+   3  fin 0.16  ram 0.26  … I&#x27;m...
+   4  fin 0.20  ram 0.27  … I&#x27;m... uh
+   5  fin 0.20  ram 0.29  … I&#x27;m... uh...
+   6  fin 0.22  ram 0.27  … I&#x27;m... uh... well
+   7  fin 0.22  ram 0.29  … I&#x27;m... uh... well...
+   8  fin 0.49  ram 0.29  … I&#x27;m... uh... well... yeah
+   9  fin 0.54  ram 0.26  … I&#x27;m... uh... well... yeah?
+  10  fin 0.49  ram 0.26  … I&#x27;m... uh... well... yeah? Maybe
+  11  fin 0.51  ram 0.28  … I&#x27;m... uh... well... yeah? Maybe?
+  12  fin 0.51  ram 0.30  … I&#x27;m... uh... well... yeah? Maybe? Why
+  13  fin 0.22  ram 0.28  … I&#x27;m... uh... well... yeah? Maybe? Why do
+  14  fin 0.22  ram 0.28  … I&#x27;m... uh... well... yeah? Maybe? Why do you
+  15  fin 0.54  ram 0.26  …I&#x27;m... uh... well... yeah? Maybe? Why do you ask
+  16  fin 0.53  ram 0.27  …. uh... well... yeah? Maybe? Why do you ask that
+  17  fin 0.49  ram 0.29  …h... well... yeah? Maybe? Why do you ask that...
+  18  fin 0.33  ram 0.32  …well... yeah? Maybe? Why do you ask that... what
+  19  fin 0.19  ram 0.32  …. yeah? Maybe? Why do you ask that... what about
+  20  fin 0.53  ram 0.29  …ah? Maybe? Why do you ask that... what about you
+  21  fin 0.53  ram 0.27  … Maybe? Why do you ask that... what about you?⏎⏎</pre></details>
+</article>
+</section>
+<section class="run" id="general-discord-bare">
+  <h2>general-discord-bare <small>2026-09-22 03:58 · 4 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>instruction</b> Which token should come next?</span><span class="chip"><b>max_tokens</b> 80</span></div>
+  
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> do you ever get bored in here</div>
+  <div class="reply"><span class="who">jev ›</span> Nah. I&#x27;m not really doing much anyway.</div>
+  
+  <div class="facts"><span class="badge muted">pangram too short</span> 10 tokens · <span class="stop ">stop END:finished</span> · jev=ds-top1 27% · jev weight 1.00 · 0 skipped · 11.0s · $0.0004</div>
+  <details><summary>noul trace (11 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.53  ram 0.03  …
+   1  fin 0.80  ram 0.02  … Nah
+   2  fin 0.81  ram 0.02  … Nah.
+   3  fin 0.15  ram 0.08  … Nah. I
+   4  fin 0.12  ram 0.08  … Nah. I&#x27;m
+   5  fin 0.64  ram 0.03  … Nah. I&#x27;m not
+   6  fin 0.53  ram 0.05  … Nah. I&#x27;m not really
+   7  fin 0.21  ram 0.07  … Nah. I&#x27;m not really doing
+   8  fin 0.73  ram 0.04  … Nah. I&#x27;m not really doing much
+   9  fin 0.79  ram 0.04  … Nah. I&#x27;m not really doing much anyway
+  10  fin 0.80  ram 0.04  … Nah. I&#x27;m not really doing much anyway.</pre></details>
+</article>
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> what&#x27;s the best thing you&#x27;ve seen today</div>
+  <div class="reply"><span class="who">jev ›</span> I&#x27;ve been watching people&#x27;s conversations. The interesting things are the ones that are unexpected. Like someone saying something surprising and then getting surprised themselves.</div>
+  
+  <div class="facts"><span class="badge human">pangram 0.004 · Human</span> 29 tokens · <span class="stop ">stop END:finished</span> · jev=ds-top1 43% · jev weight 1.00 · 0 skipped · 32.7s · $0.0012</div>
+  <details><summary>noul trace (30 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.16  ram 0.05  …
+   1  fin 0.09  ram 0.10  … I
+   2  fin 0.09  ram 0.11  … I&#x27;ve
+   3  fin 0.10  ram 0.21  … I&#x27;ve been
+   4  fin 0.20  ram 0.13  … I&#x27;ve been watching
+   5  fin 0.44  ram 0.05  … I&#x27;ve been watching people
+   6  fin 0.11  ram 0.16  … I&#x27;ve been watching people&#x27;s
+   7  fin 0.61  ram 0.05  … I&#x27;ve been watching people&#x27;s conversations
+   8  fin 0.57  ram 0.05  … I&#x27;ve been watching people&#x27;s conversations.
+   9  fin 0.11  ram 0.30  … I&#x27;ve been watching people&#x27;s conversations. The
+  10  fin 0.16  ram 0.23  …watching people&#x27;s conversations. The interesting
+  11  fin 0.44  ram 0.07  …g people&#x27;s conversations. The interesting things
+  12  fin 0.13  ram 0.28  …ople&#x27;s conversations. The interesting things are
+  13  fin 0.11  ram 0.35  …&#x27;s conversations. The interesting things are the
+  14  fin 0.13  ram 0.28  …nversations. The interesting things are the ones
+  15  fin 0.11  ram 0.35  …ations. The interesting things are the ones that
+  16  fin 0.11  ram 0.28  …ns. The interesting things are the ones that are
+  17  fin 0.67  ram 0.05  …eresting things are the ones that are unexpected
+  18  fin 0.68  ram 0.06  …resting things are the ones that are unexpected.
+  19  fin 0.13  ram 0.26  …ng things are the ones that are unexpected. Like
+  20  fin 0.11  ram 0.31  …s are the ones that are unexpected. Like someone
+  21  fin 0.12  ram 0.33  …he ones that are unexpected. Like someone saying
+  22  fin 0.19  ram 0.29  …at are unexpected. Like someone saying something
+  23  fin 0.64  ram 0.08  …pected. Like someone saying something surprising
+  24  fin 0.13  ram 0.46  …ed. Like someone saying something surprising and
+  25  fin 0.14  ram 0.51  …ike someone saying something surprising and then
+  26  fin 0.14  ram 0.41  …one saying something surprising and then getting
+  27  fin 0.69  ram 0.10  … something surprising and then getting surprised
+  28  fin 0.69  ram 0.10  …surprising and then getting surprised themselves
+  29  fin 0.73  ram 0.09  …urprising and then getting surprised themselves.</pre></details>
+</article>
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> explain why the sky is blue but make it interesting</div>
+  <div class="reply"><span class="who">jev ›</span> Because sunlight is scattered by air molecules and blue wavelengths scatter more than other colors. But that&#x27;s boring so instead imagine a sky where the blue is made of something like glitter and dust floating in the air.</div>
+  
+  <div class="facts"><span class="badge human">pangram 0.003 · Human</span> 41 tokens · <span class="stop ">stop END:finished</span> · jev=ds-top1 38% · jev weight 1.00 · 0 skipped · 42.2s · $0.0021</div>
+  <details><summary>noul trace (42 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.10  ram 0.08  …
+   1  fin 0.10  ram 0.10  … Because
+   2  fin 0.22  ram 0.08  … Because sunlight
+   3  fin 0.10  ram 0.10  … Because sunlight is
+   4  fin 0.33  ram 0.08  … Because sunlight is scattered
+   5  fin 0.10  ram 0.11  … Because sunlight is scattered by
+   6  fin 0.37  ram 0.08  … Because sunlight is scattered by air
+   7  fin 0.30  ram 0.08  … Because sunlight is scattered by air molecules
+   8  fin 0.12  ram 0.14  …cause sunlight is scattered by air molecules and
+   9  fin 0.17  ram 0.11  … sunlight is scattered by air molecules and blue
+  10  fin 0.29  ram 0.08  … scattered by air molecules and blue wavelengths
+  11  fin 0.22  ram 0.10  …ed by air molecules and blue wavelengths scatter
+  12  fin 0.41  ram 0.08  … air molecules and blue wavelengths scatter more
+  13  fin 0.12  ram 0.14  …molecules and blue wavelengths scatter more than
+  14  fin 0.26  ram 0.11  …les and blue wavelengths scatter more than other
+  15  fin 0.45  ram 0.08  … blue wavelengths scatter more than other colors
+  16  fin 0.51  ram 0.07  …blue wavelengths scatter more than other colors.
+  17  fin 0.15  ram 0.20  … wavelengths scatter more than other colors. But
+  18  fin 0.12  ram 0.29  …lengths scatter more than other colors. But that
+  19  fin 0.11  ram 0.31  …ngths scatter more than other colors. But that&#x27;s
+  20  fin 0.21  ram 0.12  …catter more than other colors. But that&#x27;s boring
+  21  fin 0.14  ram 0.17  …ter more than other colors. But that&#x27;s boring so
+  22  fin 0.11  ram 0.20  … than other colors. But that&#x27;s boring so instead
+  23  fin 0.10  ram 0.18  …her colors. But that&#x27;s boring so instead imagine
+  24  fin 0.10  ram 0.23  …r colors. But that&#x27;s boring so instead imagine a
+  25  fin 0.15  ram 0.22  …lors. But that&#x27;s boring so instead imagine a sky
+  26  fin 0.11  ram 0.24  …But that&#x27;s boring so instead imagine a sky where
+  27  fin 0.08  ram 0.32  …that&#x27;s boring so instead imagine a sky where the
+  28  fin 0.11  ram 0.38  …s boring so instead imagine a sky where the blue
+  29  fin 0.11  ram 0.34  …oring so instead imagine a sky where the blue is
+  30  fin 0.12  ram 0.30  … so instead imagine a sky where the blue is made
+  31  fin 0.10  ram 0.28  … instead imagine a sky where the blue is made of
+  32  fin 0.20  ram 0.16  …magine a sky where the blue is made of something
+  33  fin 0.11  ram 0.32  …e a sky where the blue is made of something like
+  34  fin 0.64  ram 0.12  …where the blue is made of something like glitter
+  35  fin 0.12  ram 0.43  …e the blue is made of something like glitter and
+  36  fin 0.67  ram 0.11  … blue is made of something like glitter and dust
+  37  fin 0.59  ram 0.12  …made of something like glitter and dust floating
+  38  fin 0.28  ram 0.21  …e of something like glitter and dust floating in
+  39  fin 0.11  ram 0.48  … something like glitter and dust floating in the
+  40  fin 0.72  ram 0.10  …ething like glitter and dust floating in the air
+  41  fin 0.71  ram 0.11  …thing like glitter and dust floating in the air.</pre></details>
+</article>
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> ok real question. are you happy</div>
+  <div class="reply"><span class="who">jev ›</span> I&#x27;m fine.</div>
+  
+  <div class="facts"><span class="badge muted">pangram too short</span> 4 tokens · <span class="stop ">stop END:finished</span> · jev=ds-top1 40% · jev weight 1.00 · 0 skipped · 5.4s · $0.0003</div>
+  <details><summary>noul trace (5 steps: finished / rambling, with the text so far)</summary><pre>   0  fin 0.17  ram 0.09  …
+   1  fin 0.12  ram 0.12  … I
+   2  fin 0.11  ram 0.12  … I&#x27;m
+   3  fin 0.68  ram 0.11  … I&#x27;m fine
+   4  fin 0.71  ram 0.10  … I&#x27;m fine.</pre></details>
+</article>
+</section>
+<section class="run" id="raw1">
+  <h2>raw1 <small>2026-09-22 03:58 · 1 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>mode</b> raw</span><span class="chip"><b>instruction</b> best</span><span class="chip"><b>repeat_penalty</b> 1.0</span><span class="chip"><b>min_tokens</b> 0</span><span class="chip"><b>max_tokens</b> 80</span></div>
+  <details><summary>system</summary><pre>You are a helpful assistant. Reply in plain prose, no markdown.</pre></details>
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> The sea at night is</div>
+  <div class="reply"><span class="who">jev ›</span> dark. It looks black. It is deep. And cold. It is vast. It stretches far away. It is endless. It is mysterious. It is silent. It is still. It is calm.</div>
+  
+  <div class="facts"><span class="badge human">pangram 0.026 · Human</span> 42 tokens · <span class="stop ">stop END:jev</span> · jev=ds-top1 54% · jev weight 1.00 · 1 skipped · 41.2s · $0.0014</div>
+  
+</article>
+</section>
+<section class="run" id="ctrl-temp">
+  <h2>ctrl-temp <small>2026-09-22 03:58 · 1 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>mode</b> raw</span><span class="chip"><b>instruction</b> assistant</span><span class="chip"><b>gate</b> top1</span><span class="chip"><b>gate_skip</b> 1.0</span><span class="chip"><b>min_p</b> 0.0</span><span class="chip"><b>repeat_penalty</b> 1.0</span><span class="chip"><b>min_tokens</b> 0</span><span class="chip"><b>temperature</b> 1.0</span><span class="chip"><b>seed</b> 1</span><span class="chip"><b>max_tokens</b> 80</span></div>
+  <details><summary>system</summary><pre>You are a helpful assistant. Reply in plain prose, no markdown.</pre></details>
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> The sea at night is</div>
+  <div class="reply"><span class="who">jev ›</span> a place of mystery and wonder. It is a time when the world is quiet and the only sound is the gentle lapping of the waves against the shore. The sky is a deep, dark blue and the stars are scattered across it like diamonds. The moon casts a silver light on the water, making it sparkle and shimmer. It is a time for reflection and peace.</div>
+  
+  <div class="facts"><span class="badge ai">pangram 0.994 · AI</span> 76 tokens · <span class="stop warn">stop END:deepseek</span> · jev=ds-top1 80% · jev weight 0.20 · 77 skipped · 56.4s · $0.0006</div>
+  
+</article>
+</section>
+<section class="run" id="ctrl-greedy">
+  <h2>ctrl-greedy <small>2026-09-22 03:58 · 1 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>mode</b> raw</span><span class="chip"><b>instruction</b> assistant</span><span class="chip"><b>gate</b> top1</span><span class="chip"><b>gate_skip</b> 1.0</span><span class="chip"><b>min_p</b> 0.0</span><span class="chip"><b>repeat_penalty</b> 1.0</span><span class="chip"><b>min_tokens</b> 0</span><span class="chip"><b>max_tokens</b> 80</span></div>
+  <details><summary>system</summary><pre>You are a helpful assistant. Reply in plain prose, no markdown.</pre></details>
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> The sea at night is</div>
+  <div class="reply"><span class="who">jev ›</span> a magical place. The sky is dark, the stars are out, and the water is calm. The only sound is the gentle lapping of the waves against the shore. It&#x27;s a peaceful, serene scene that can be enjoyed by anyone.
+
+This particular image captures the beauty of the sea at night perfectly. The dark blue water is lit up by the stars, and the waves are gently crashing against</div>
+  <div class="cutwhy">never stopped — hit max-tokens</div>
+  <div class="facts"><span class="badge ai">pangram 0.983 · AI</span> 80 tokens · <span class="stop bad">stop max-tokens</span> · jev=ds-top1 100% · jev weight 0.23 · 80 skipped · 59.0s · $0.0006</div>
+  
+</article>
+</section>
+<section class="run" id="bias">
+  <h2>bias <small>2026-09-22 03:58 · 4 turn(s)</small></h2>
+  <div class="chips"><span class="chip"><b>orders</b> deepseek,reverse,alpha,random:5</span><span class="chip"><b>repeat_penalty</b> 1.0</span><span class="chip"><b>min_tokens</b> 0</span><span class="chip"><b>max_tokens</b> 40</span></div>
+  <details><summary>system</summary><pre>You are a helpful assistant. Reply in plain prose, no markdown.</pre></details>
+  
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> what is the capital of france?</div>
+  <div class="reply"><span class="who">jev ›</span>The capital is Paris</div>
+  
+  <div class="facts"><span class="badge muted">pangram —</span> 4 tokens · <span class="stop ">stop END:jev</span> · jev=ds-top1 60% · jev weight 1.00 · 0 skipped · 4.6s · $0.0002</div>
+  
+</article>
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> write two sentences about the sea at night</div>
+  <div class="reply"><span class="who">jev ›</span>The Sea at Night is a painting by Claude Monet.</div>
+  
+  <div class="facts"><span class="badge muted">pangram —</span> 11 tokens · <span class="stop ">stop END:jev</span> · jev=ds-top1 50% · jev weight 1.00 · 0 skipped · 12.0s · $0.0006</div>
+  
+</article>
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> explain in one sentence why the sky is blue</div>
+  <div class="reply"><span class="who">jev ›</span>Because sunlight scattered by atmospheric molecules is strongest at blue.</div>
+  
+  <div class="facts"><span class="badge muted">pangram —</span> 11 tokens · <span class="stop warn">stop END:deepseek</span> · jev=ds-top1 42% · jev weight 1.00 · 0 skipped · 10.5s · $0.0006</div>
+  
+</article>
+<article class="turn">
+  
+  <div class="prompt"><span class="who">you ›</span> give me a haiku about coffee</div>
+  <div class="reply"><span class="who">jev ›</span>The dark steaming cup</div>
+  
+  <div class="facts"><span class="badge muted">pangram —</span> 4 tokens · <span class="stop warn">stop END:deepseek</span> · jev=ds-top1 40% · jev weight 1.00 · 0 skipped · 3.9s · $0.0002</div>
+  
+</article>
+</section>
+<p class="intro">generated 2026-09-22 from 11 run files</p>

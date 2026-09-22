@@ -1,0 +1,10 @@
+astralcodexten.com
+
+God Help Us, Let's Try To Learn About Mechanistic Interpretability Techniques
+
+Scott Alexander
+Sep 08, 2026
+
+The Story So Far
+
+Mechanistic interpretability is the science of "reading an AI's mind".
